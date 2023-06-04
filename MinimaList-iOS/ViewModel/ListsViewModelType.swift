@@ -13,4 +13,5 @@ protocol ListsViewModelType: ObservableObject {
     var isLoadingLists: Bool { get }
     
     func onAppear()
+    func createList(_ name: String, footNote: String?)
 }

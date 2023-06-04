@@ -35,7 +35,7 @@ struct LeanListRowView: View {
                 }
             }
         }
-        .frame(minHeight: 60)
+        .frame(minHeight: 44)
     }
 }
 

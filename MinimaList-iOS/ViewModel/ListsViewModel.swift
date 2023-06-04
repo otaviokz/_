@@ -26,6 +26,13 @@ class ListsViewModel: ListsViewModelType {
             }
         }
     }
+    
+    func createList(_ name: String, footNote: String?) {
+        var aux = lists
+        aux.append(LeanList(name, footNote: footNote))
+        lists = aux.sortedByName
+        
+    }
 }
 
 private extension ListsViewModel {

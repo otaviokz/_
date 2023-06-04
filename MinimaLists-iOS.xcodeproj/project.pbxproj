@@ -20,6 +20,8 @@
 		2B055E002A2C078A004E8214 /* Groceries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055DFF2A2C078A004E8214 /* Groceries.json */; };
 		2B055E022A2C0C65004E8214 /* LeanLists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055E012A2C0C65004E8214 /* LeanLists.json */; };
 		2B055E042A2C0CF8004E8214 /* LeanListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055E032A2C0CF8004E8214 /* LeanListTests.swift */; };
+		2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E302A2C9B880052B2FC /* AddListView.swift */; };
+		2B494E362A2C9C6D0052B2FC /* Binding+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */; };
 		2B57CDA22A2C2F0B000F5181 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA12A2C2F0B000F5181 /* ListsView.swift */; };
 		2B57CDA52A2C3027000F5181 /* ListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA42A2C3027000F5181 /* ListsViewModel.swift */; };
 		2B57CDA72A2C3054000F5181 /* ListsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA62A2C3054000F5181 /* ListsViewModelType.swift */; };
@@ -66,6 +68,8 @@
 		2B055DFF2A2C078A004E8214 /* Groceries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Groceries.json; sourceTree = "<group>"; };
 		2B055E012A2C0C65004E8214 /* LeanLists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LeanLists.json; sourceTree = "<group>"; };
 		2B055E032A2C0CF8004E8214 /* LeanListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanListTests.swift; sourceTree = "<group>"; };
+		2B494E302A2C9B880052B2FC /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
+		2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Equatable.swift"; sourceTree = "<group>"; };
 		2B57CDA12A2C2F0B000F5181 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		2B57CDA42A2C3027000F5181 /* ListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewModel.swift; sourceTree = "<group>"; };
 		2B57CDA62A2C3054000F5181 /* ListsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewModelType.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 		2B055DC72A2BFDEF004E8214 /* MinimaList-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2B494E322A2C9BE20052B2FC /* Extensions */,
 				2B57CDA32A2C2FB7000F5181 /* ViewModel */,
 				2B57CDA02A2C2EF4000F5181 /* View */,
 				2B055DF32A2BFFA2004E8214 /* Model */,
@@ -203,11 +208,20 @@
 			path = Documents;
 			sourceTree = "<group>";
 		};
+		2B494E322A2C9BE20052B2FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2B57CDA02A2C2EF4000F5181 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2B57CDA12A2C2F0B000F5181 /* ListsView.swift */,
 				2B57CDAA2A2C3DBF000F5181 /* LeanListRowView.swift */,
+				2B494E302A2C9B880052B2FC /* AddListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,7 +385,9 @@
 				2B57CDA92A2C3715000F5181 /* PreviewListsViewModel.swift in Sources */,
 				2B57CDA22A2C2F0B000F5181 /* ListsView.swift in Sources */,
 				2B57CDA72A2C3054000F5181 /* ListsViewModelType.swift in Sources */,
+				2B494E362A2C9C6D0052B2FC /* Binding+Equatable.swift in Sources */,
 				2B57CDA52A2C3027000F5181 /* ListsViewModel.swift in Sources */,
+				2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */,
 				2B055DC92A2BFDEF004E8214 /* MinimaList_iOSApp.swift in Sources */,
 				2B055DF52A2BFFCB004E8214 /* LeanList.swift in Sources */,
 				2B57CDAB2A2C3DBF000F5181 /* LeanListRowView.swift in Sources */,
