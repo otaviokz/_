@@ -11,7 +11,7 @@ import SwiftUI
 struct MinimaList_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ListsView(viewModel: ListsViewModel())
         }
     }
 }

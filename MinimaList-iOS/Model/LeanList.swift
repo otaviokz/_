@@ -13,6 +13,18 @@ import Foundation
  */
 struct LeanList: Codable {
     let name: String
+    let footNote: String?
+    
+    init(_ name: String, footNote: String? = nil) {
+        self.name = name
+        self.footNote = footNote
+    }
+}
+
+extension LeanList: Identifiable {
+    var id: UUID {
+        UUID()
+    }
 }
 
 extension Array where Element == LeanList {
