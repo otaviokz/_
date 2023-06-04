@@ -27,6 +27,7 @@ final class MinimaList_iOSUITests: XCTestCase {
 
     func testBasics() throws {
         let app = XCUIApplication()
+        app.launch()
         waitExists(app.progressIndicators.element, timeOut: 2)
         
         XCTAssert(app.navigationBars.staticTexts.matching(.label("Lists")).element.exists)
@@ -35,6 +36,7 @@ final class MinimaList_iOSUITests: XCTestCase {
     
     func testShowsFetchedListsAfterIndicator() throws {
         let app = XCUIApplication()
+        app.launch()
         waitDontExists(app.progressIndicators.element, timeOut: 3)
         
         XCTAssert(app.staticTexts.matching(label: "Groceries").exists)

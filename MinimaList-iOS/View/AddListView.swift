@@ -51,6 +51,7 @@ struct AddListView: View {
                     focus = FocusElement.footNote
                 }
                 .focused($focus, equals: FocusElement.name)
+                .accessibility(identifier: "List name")
             
             if nameAlreadyUsed {
                 HStack {
@@ -58,6 +59,7 @@ struct AddListView: View {
                         .foregroundColor(.red)
                         .font(.subheadline)
                         .fontWeight(.regular)
+                        .accessibilityIdentifier("Name already used")
                     Spacer()
                 }
                 .padding(.horizontal, 16)
@@ -71,7 +73,7 @@ struct AddListView: View {
                 }
             }
             
-            TextField("Foot Note", text: $footNote)
+            TextField("Foot note", text: $footNote)
                 .frame(height: 100, alignment: .topLeading)
                 .padding(.horizontal, 24)
                 .padding(EdgeInsets(top: 4, leading: 0, bottom: 0, trailing: 0))
@@ -83,6 +85,7 @@ struct AddListView: View {
                 .multilineTextAlignment(.leading)
                 .truncationMode(.tail)
                 .focused($focus, equals: FocusElement.footNote)
+                .accessibility(identifier: "Foot note")
             
             if footNote.count > 128 {
                 HStack {
@@ -98,6 +101,7 @@ struct AddListView: View {
             
             if showButton {
                 saveButton
+                    .accessibility(identifier: "Save")
             }
         }
         .onAppear {

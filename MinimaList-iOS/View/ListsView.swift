@@ -48,15 +48,17 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                     }
             }
             .toolbar {
-                Image("add.list")
-                    .resizable()
-                    .frame(width: 32, height: 32)
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        showAddListView = true
-                    }
-                    .padding(.trailing, 16)
-                    .padding(.top, 6)
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image("add.list")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            showAddListView = true
+                        }
+                        .padding(.trailing, 16)
+                        .padding(.top, 6)
+                }
             }
         }
     }
