@@ -14,6 +14,13 @@
 		2B055DDB2A2BFDF0004E8214 /* MinimaList_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DDA2A2BFDF0004E8214 /* MinimaList_iOSTests.swift */; };
 		2B055DE52A2BFDF0004E8214 /* MinimaList_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DE42A2BFDF0004E8214 /* MinimaList_iOSUITests.swift */; };
 		2B055DE72A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DE62A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift */; };
+		2B055DF52A2BFFCB004E8214 /* LeanList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DF42A2BFFCB004E8214 /* LeanList.swift */; };
+		2B055DF72A2BFFDA004E8214 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DF62A2BFFDA004E8214 /* ListItem.swift */; };
+		2B055DFA2A2C04EB004E8214 /* ListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DF92A2C04EB004E8214 /* ListItemTests.swift */; };
+		2B055DFD2A2C0609004E8214 /* JSONLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DFC2A2C0609004E8214 /* JSONLoader.swift */; };
+		2B055E002A2C078A004E8214 /* Groceries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055DFF2A2C078A004E8214 /* Groceries.json */; };
+		2B055E022A2C0C65004E8214 /* LeanLists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055E012A2C0C65004E8214 /* LeanLists.json */; };
+		2B055E042A2C0CF8004E8214 /* LeanLiistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055E032A2C0CF8004E8214 /* LeanLiistTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,17 +41,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2B055DC52A2BFDEF004E8214 /* MinimaList-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MinimaList-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B055DC52A2BFDEF004E8214 /* MinimaLists-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MinimaLists-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B055DC82A2BFDEF004E8214 /* MinimaList_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimaList_iOSApp.swift; sourceTree = "<group>"; };
 		2B055DCA2A2BFDEF004E8214 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2B055DCC2A2BFDF0004E8214 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B055DCE2A2BFDF0004E8214 /* MinimaList_iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinimaList_iOS.entitlements; sourceTree = "<group>"; };
 		2B055DD02A2BFDF0004E8214 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2B055DD62A2BFDF0004E8214 /* MinimaList-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MinimaList-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B055DD62A2BFDF0004E8214 /* MinimaLists-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MinimaLists-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B055DDA2A2BFDF0004E8214 /* MinimaList_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimaList_iOSTests.swift; sourceTree = "<group>"; };
-		2B055DE02A2BFDF0004E8214 /* MinimaList-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MinimaList-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B055DE02A2BFDF0004E8214 /* MinimaLists-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MinimaLists-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B055DE42A2BFDF0004E8214 /* MinimaList_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimaList_iOSUITests.swift; sourceTree = "<group>"; };
 		2B055DE62A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimaList_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2B055DF42A2BFFCB004E8214 /* LeanList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanList.swift; sourceTree = "<group>"; };
+		2B055DF62A2BFFDA004E8214 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		2B055DF92A2C04EB004E8214 /* ListItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemTests.swift; sourceTree = "<group>"; };
+		2B055DFC2A2C0609004E8214 /* JSONLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONLoader.swift; sourceTree = "<group>"; };
+		2B055DFF2A2C078A004E8214 /* Groceries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Groceries.json; sourceTree = "<group>"; };
+		2B055E012A2C0C65004E8214 /* LeanLists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LeanLists.json; sourceTree = "<group>"; };
+		2B055E032A2C0CF8004E8214 /* LeanLiistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanLiistTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +99,9 @@
 		2B055DC62A2BFDEF004E8214 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B055DC52A2BFDEF004E8214 /* MinimaList-iOS.app */,
-				2B055DD62A2BFDF0004E8214 /* MinimaList-iOSTests.xctest */,
-				2B055DE02A2BFDF0004E8214 /* MinimaList-iOSUITests.xctest */,
+				2B055DC52A2BFDEF004E8214 /* MinimaLists-iOS.app */,
+				2B055DD62A2BFDF0004E8214 /* MinimaLists-iOSTests.xctest */,
+				2B055DE02A2BFDF0004E8214 /* MinimaLists-iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +109,7 @@
 		2B055DC72A2BFDEF004E8214 /* MinimaList-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2B055DF32A2BFFA2004E8214 /* Model */,
 				2B055DC82A2BFDEF004E8214 /* MinimaList_iOSApp.swift */,
 				2B055DCA2A2BFDEF004E8214 /* ContentView.swift */,
 				2B055DCC2A2BFDF0004E8214 /* Assets.xcassets */,
@@ -115,6 +130,9 @@
 		2B055DD92A2BFDF0004E8214 /* MinimaList-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				2B055DF82A2C04CE004E8214 /* Model */,
+				2B055DFE2A2C0699004E8214 /* Documents */,
+				2B055DFB2A2C05FB004E8214 /* Utils */,
 				2B055DDA2A2BFDF0004E8214 /* MinimaList_iOSTests.swift */,
 			);
 			path = "MinimaList-iOSTests";
@@ -129,12 +147,47 @@
 			path = "MinimaList-iOSUITests";
 			sourceTree = "<group>";
 		};
+		2B055DF32A2BFFA2004E8214 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B055DF42A2BFFCB004E8214 /* LeanList.swift */,
+				2B055DF62A2BFFDA004E8214 /* ListItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B055DF82A2C04CE004E8214 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2B055DF92A2C04EB004E8214 /* ListItemTests.swift */,
+				2B055E032A2C0CF8004E8214 /* LeanLiistTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B055DFB2A2C05FB004E8214 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2B055DFC2A2C0609004E8214 /* JSONLoader.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2B055DFE2A2C0699004E8214 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				2B055E012A2C0C65004E8214 /* LeanLists.json */,
+				2B055DFF2A2C078A004E8214 /* Groceries.json */,
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2B055DC42A2BFDEF004E8214 /* MinimaList-iOS */ = {
+		2B055DC42A2BFDEF004E8214 /* MinimaLists-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B055DEA2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaList-iOS" */;
+			buildConfigurationList = 2B055DEA2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaLists-iOS" */;
 			buildPhases = (
 				2B055DC12A2BFDEF004E8214 /* Sources */,
 				2B055DC22A2BFDEF004E8214 /* Frameworks */,
@@ -144,14 +197,14 @@
 			);
 			dependencies = (
 			);
-			name = "MinimaList-iOS";
+			name = "MinimaLists-iOS";
 			productName = "MinimaList-iOS";
-			productReference = 2B055DC52A2BFDEF004E8214 /* MinimaList-iOS.app */;
+			productReference = 2B055DC52A2BFDEF004E8214 /* MinimaLists-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2B055DD52A2BFDF0004E8214 /* MinimaList-iOSTests */ = {
+		2B055DD52A2BFDF0004E8214 /* MinimaLists-iOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B055DED2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaList-iOSTests" */;
+			buildConfigurationList = 2B055DED2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaLists-iOSTests" */;
 			buildPhases = (
 				2B055DD22A2BFDF0004E8214 /* Sources */,
 				2B055DD32A2BFDF0004E8214 /* Frameworks */,
@@ -162,14 +215,14 @@
 			dependencies = (
 				2B055DD82A2BFDF0004E8214 /* PBXTargetDependency */,
 			);
-			name = "MinimaList-iOSTests";
+			name = "MinimaLists-iOSTests";
 			productName = "MinimaList-iOSTests";
-			productReference = 2B055DD62A2BFDF0004E8214 /* MinimaList-iOSTests.xctest */;
+			productReference = 2B055DD62A2BFDF0004E8214 /* MinimaLists-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2B055DDF2A2BFDF0004E8214 /* MinimaList-iOSUITests */ = {
+		2B055DDF2A2BFDF0004E8214 /* MinimaLists-iOSUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B055DF02A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaList-iOSUITests" */;
+			buildConfigurationList = 2B055DF02A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaLists-iOSUITests" */;
 			buildPhases = (
 				2B055DDC2A2BFDF0004E8214 /* Sources */,
 				2B055DDD2A2BFDF0004E8214 /* Frameworks */,
@@ -180,9 +233,9 @@
 			dependencies = (
 				2B055DE22A2BFDF0004E8214 /* PBXTargetDependency */,
 			);
-			name = "MinimaList-iOSUITests";
+			name = "MinimaLists-iOSUITests";
 			productName = "MinimaList-iOSUITests";
-			productReference = 2B055DE02A2BFDF0004E8214 /* MinimaList-iOSUITests.xctest */;
+			productReference = 2B055DE02A2BFDF0004E8214 /* MinimaLists-iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +261,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2B055DC02A2BFDEF004E8214 /* Build configuration list for PBXProject "MinimaList-iOS" */;
+			buildConfigurationList = 2B055DC02A2BFDEF004E8214 /* Build configuration list for PBXProject "MinimaLists-iOS" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,13 +270,15 @@
 				Base,
 			);
 			mainGroup = 2B055DBC2A2BFDEF004E8214;
+			packageReferences = (
+			);
 			productRefGroup = 2B055DC62A2BFDEF004E8214 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2B055DC42A2BFDEF004E8214 /* MinimaList-iOS */,
-				2B055DD52A2BFDF0004E8214 /* MinimaList-iOSTests */,
-				2B055DDF2A2BFDF0004E8214 /* MinimaList-iOSUITests */,
+				2B055DC42A2BFDEF004E8214 /* MinimaLists-iOS */,
+				2B055DD52A2BFDF0004E8214 /* MinimaLists-iOSTests */,
+				2B055DDF2A2BFDF0004E8214 /* MinimaLists-iOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -242,6 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B055E002A2C078A004E8214 /* Groceries.json in Resources */,
+				2B055E022A2C0C65004E8214 /* LeanLists.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +316,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B055DF72A2BFFDA004E8214 /* ListItem.swift in Sources */,
 				2B055DCB2A2BFDEF004E8214 /* ContentView.swift in Sources */,
 				2B055DC92A2BFDEF004E8214 /* MinimaList_iOSApp.swift in Sources */,
+				2B055DF52A2BFFCB004E8214 /* LeanList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +327,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B055DFA2A2C04EB004E8214 /* ListItemTests.swift in Sources */,
+				2B055DFD2A2C0609004E8214 /* JSONLoader.swift in Sources */,
 				2B055DDB2A2BFDF0004E8214 /* MinimaList_iOSTests.swift in Sources */,
+				2B055E042A2C0CF8004E8214 /* LeanLiistTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,12 +348,12 @@
 /* Begin PBXTargetDependency section */
 		2B055DD82A2BFDF0004E8214 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2B055DC42A2BFDEF004E8214 /* MinimaList-iOS */;
+			target = 2B055DC42A2BFDEF004E8214 /* MinimaLists-iOS */;
 			targetProxy = 2B055DD72A2BFDF0004E8214 /* PBXContainerItemProxy */;
 		};
 		2B055DE22A2BFDF0004E8214 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2B055DC42A2BFDEF004E8214 /* MinimaList-iOS */;
+			target = 2B055DC42A2BFDEF004E8214 /* MinimaLists-iOS */;
 			targetProxy = 2B055DE12A2BFDF0004E8214 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -347,6 +409,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -399,6 +462,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -429,7 +493,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -437,7 +501,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -467,7 +533,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
@@ -475,7 +541,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -491,17 +559,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H7MUL7BCTG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinimaList-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MinimaList-iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinimaLists-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MinimaLists-iOS";
 			};
 			name = Debug;
 		};
@@ -514,17 +584,19 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H7MUL7BCTG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinimaList-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MinimaList-iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MinimaLists-iOS.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/MinimaLists-iOS";
 			};
 			name = Release;
 		};
@@ -536,13 +608,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H7MUL7BCTG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -558,13 +632,15 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = H7MUL7BCTG;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOSUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -575,7 +651,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2B055DC02A2BFDEF004E8214 /* Build configuration list for PBXProject "MinimaList-iOS" */ = {
+		2B055DC02A2BFDEF004E8214 /* Build configuration list for PBXProject "MinimaLists-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B055DE82A2BFDF0004E8214 /* Debug */,
@@ -584,7 +660,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B055DEA2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaList-iOS" */ = {
+		2B055DEA2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaLists-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B055DEB2A2BFDF0004E8214 /* Debug */,
@@ -593,7 +669,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B055DED2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaList-iOSTests" */ = {
+		2B055DED2A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaLists-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B055DEE2A2BFDF0004E8214 /* Debug */,
@@ -602,7 +678,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B055DF02A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaList-iOSUITests" */ = {
+		2B055DF02A2BFDF0004E8214 /* Build configuration list for PBXNativeTarget "MinimaLists-iOSUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B055DF12A2BFDF0004E8214 /* Debug */,
