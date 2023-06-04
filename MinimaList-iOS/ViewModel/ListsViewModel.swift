@@ -8,8 +8,8 @@
 import Foundation
 
 class ListsViewModel: ListsViewModelType {
-    @Published private(set)var lists: [LeanList] = []
-    @Published private(set)var isLoadingLists: Bool = false
+    @Published private(set) var lists: [LeanList] = []
+    @Published private(set) var isLoading = false
     private var shouldFetchLists = true
     
     func onAppear() {
@@ -19,10 +19,10 @@ class ListsViewModel: ListsViewModelType {
     func fetchLists() {
         if shouldFetchLists {
             shouldFetchLists = false
-            isLoadingLists = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [unowned self] in
-                lists = Self.mockLists
-                isLoadingLists = false
+            isLoading = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+                lists = mockLists
+                isLoading = false
             }
         }
     }
@@ -36,7 +36,7 @@ class ListsViewModel: ListsViewModelType {
 }
 
 private extension ListsViewModel {
-    static var mockLists: [LeanList] {
+    var mockLists: [LeanList] {
         [
             LeanList("Groceries", footNote: "Try Farmers Market first"),
             LeanList("High Street Shopping"),

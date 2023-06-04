@@ -19,15 +19,14 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.isLoadingLists {
+                if viewModel.isLoading {
                     ProgressView()
                         .controlSize(.large)
                         .foregroundColor(.blue)
-                    
                 } else {
                     List {
                         ForEach(viewModel.lists) { list in
-                            NavigationLink(destination: EmptyView()) {
+                            NavigationLink(destination: ListItemsView(list)) {
                                 LeanListRowView(list: list)
                             }
                         }
@@ -48,16 +47,18 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                     }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image("add.list")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
-                            showAddListView = true
-                        }
-                        .padding(.trailing, 16)
-                        .padding(.top, 6)
+                if !showAddListView {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Image("add.list")
+                            .resizable()
+                            .frame(width: 32, height: 32)
+                            .foregroundColor(.blue)
+                            .onTapGesture {
+                                showAddListView = true
+                            }
+                            .padding(.trailing, 16)
+                            .padding(.top, 6)
+                    }
                 }
             }
         }

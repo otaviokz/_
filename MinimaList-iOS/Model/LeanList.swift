@@ -11,9 +11,10 @@ import Foundation
  * I didn't call it simply "List" to avoid compiling problems
  * I decided on "Lean" simply because I thought MinimaList was cool as an App name, but awkward as a struc name
  */
-struct LeanList: Codable {
-    let name: String
-    let footNote: String?
+struct LeanList: Identifiable {
+    private(set) var name: String
+    private(set) var footNote: String?
+    let id = UUID()
     
     init(_ name: String, footNote: String? = nil) {
         self.name = name
@@ -21,9 +22,20 @@ struct LeanList: Codable {
     }
 }
 
-extension LeanList: Identifiable {
-    var id: UUID {
-        UUID()
+extension LeanList: Codable {
+    private enum CodingKeys: String, CodingKey {
+        case name, footNote
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(name, forKey: .name)
+        if let footNote = self.footNote, !footNote.isEmpty {
+            try container.encode(footNote, forKey: .footNote)
+        } else {
+            try container.encodeNil(forKey: .footNote)
+        }
     }
 }
 
