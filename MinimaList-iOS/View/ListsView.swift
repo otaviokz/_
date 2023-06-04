@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ListsView<ViewModel: ListsViewModelType>: View {
     @ObservedObject private(set) var viewModel: ViewModel
+    @State var showAddListView: Bool = false
     
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
@@ -37,17 +38,34 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
             .onAppear {
                 viewModel.onAppear()
             }
-            .toolbar {
-                Image("add.list")
-                    .resizable()
-                    .frame(width: 32, height: 32)
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-
+            .sheet(isPresented: $showAddListView) {
+                AddListView(
+                    unavailableListNames: unavailableListNames) {
+                        showAddListView = false
+                    } onAdd: { name, footNote in
+                        showAddListView = false
+                        self.viewModel.createList(name, footNote: footNote)
                     }
-                    .padding(.trailing, 16)
-                    .padding(.top, 6)
             }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Image("add.list")
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(.blue)
+                        .onTapGesture {
+                            showAddListView = true
+                        }
+                        .padding(.trailing, 16)
+                        .padding(.top, 6)
+                }
+            }
+        }
+    }
+    
+    var unavailableListNames: [String] {
+        viewModel.lists.reduce([]) {
+            [$1.name.lowercased()] + $0
         }
     }
 }

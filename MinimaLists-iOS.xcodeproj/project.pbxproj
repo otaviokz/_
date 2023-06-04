@@ -11,7 +11,7 @@
 		2B055DCD2A2BFDF0004E8214 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B055DCC2A2BFDF0004E8214 /* Assets.xcassets */; };
 		2B055DD12A2BFDF0004E8214 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B055DD02A2BFDF0004E8214 /* Preview Assets.xcassets */; };
 		2B055DDB2A2BFDF0004E8214 /* MinimaList_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DDA2A2BFDF0004E8214 /* MinimaList_iOSTests.swift */; };
-		2B055DE52A2BFDF0004E8214 /* MinimaList_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DE42A2BFDF0004E8214 /* MinimaList_iOSUITests.swift */; };
+		2B055DE52A2BFDF0004E8214 /* ListsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DE42A2BFDF0004E8214 /* ListsViewUITests.swift */; };
 		2B055DE72A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DE62A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift */; };
 		2B055DF52A2BFFCB004E8214 /* LeanList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DF42A2BFFCB004E8214 /* LeanList.swift */; };
 		2B055DF72A2BFFDA004E8214 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055DF62A2BFFDA004E8214 /* ListItem.swift */; };
@@ -20,6 +20,9 @@
 		2B055E002A2C078A004E8214 /* Groceries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055DFF2A2C078A004E8214 /* Groceries.json */; };
 		2B055E022A2C0C65004E8214 /* LeanLists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055E012A2C0C65004E8214 /* LeanLists.json */; };
 		2B055E042A2C0CF8004E8214 /* LeanListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055E032A2C0CF8004E8214 /* LeanListTests.swift */; };
+		2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E302A2C9B880052B2FC /* AddListView.swift */; };
+		2B494E362A2C9C6D0052B2FC /* Binding+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */; };
+		2B494E382A2CA56F0052B2FC /* AddListViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */; };
 		2B57CDA22A2C2F0B000F5181 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA12A2C2F0B000F5181 /* ListsView.swift */; };
 		2B57CDA52A2C3027000F5181 /* ListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA42A2C3027000F5181 /* ListsViewModel.swift */; };
 		2B57CDA72A2C3054000F5181 /* ListsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA62A2C3054000F5181 /* ListsViewModelType.swift */; };
@@ -57,7 +60,7 @@
 		2B055DD62A2BFDF0004E8214 /* MinimaLists-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MinimaLists-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B055DDA2A2BFDF0004E8214 /* MinimaList_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimaList_iOSTests.swift; sourceTree = "<group>"; };
 		2B055DE02A2BFDF0004E8214 /* MinimaLists-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MinimaLists-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2B055DE42A2BFDF0004E8214 /* MinimaList_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimaList_iOSUITests.swift; sourceTree = "<group>"; };
+		2B055DE42A2BFDF0004E8214 /* ListsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewUITests.swift; sourceTree = "<group>"; };
 		2B055DE62A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimaList_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2B055DF42A2BFFCB004E8214 /* LeanList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanList.swift; sourceTree = "<group>"; };
 		2B055DF62A2BFFDA004E8214 /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
@@ -66,6 +69,9 @@
 		2B055DFF2A2C078A004E8214 /* Groceries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Groceries.json; sourceTree = "<group>"; };
 		2B055E012A2C0C65004E8214 /* LeanLists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LeanLists.json; sourceTree = "<group>"; };
 		2B055E032A2C0CF8004E8214 /* LeanListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanListTests.swift; sourceTree = "<group>"; };
+		2B494E302A2C9B880052B2FC /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
+		2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Equatable.swift"; sourceTree = "<group>"; };
+		2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewUITests.swift; sourceTree = "<group>"; };
 		2B57CDA12A2C2F0B000F5181 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		2B57CDA42A2C3027000F5181 /* ListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewModel.swift; sourceTree = "<group>"; };
 		2B57CDA62A2C3054000F5181 /* ListsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewModelType.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 		2B055DC72A2BFDEF004E8214 /* MinimaList-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				2B494E322A2C9BE20052B2FC /* Extensions */,
 				2B57CDA32A2C2FB7000F5181 /* ViewModel */,
 				2B57CDA02A2C2EF4000F5181 /* View */,
 				2B055DF32A2BFFA2004E8214 /* Model */,
@@ -160,7 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				2B055DFB2A2C05FB004E8214 /* Utils */,
-				2B055DE42A2BFDF0004E8214 /* MinimaList_iOSUITests.swift */,
+				2B055DE42A2BFDF0004E8214 /* ListsViewUITests.swift */,
+				2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */,
 				2B055DE62A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift */,
 			);
 			path = "MinimaList-iOSUITests";
@@ -203,11 +211,20 @@
 			path = Documents;
 			sourceTree = "<group>";
 		};
+		2B494E322A2C9BE20052B2FC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2B57CDA02A2C2EF4000F5181 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				2B57CDA12A2C2F0B000F5181 /* ListsView.swift */,
 				2B57CDAA2A2C3DBF000F5181 /* LeanListRowView.swift */,
+				2B494E302A2C9B880052B2FC /* AddListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,7 +388,9 @@
 				2B57CDA92A2C3715000F5181 /* PreviewListsViewModel.swift in Sources */,
 				2B57CDA22A2C2F0B000F5181 /* ListsView.swift in Sources */,
 				2B57CDA72A2C3054000F5181 /* ListsViewModelType.swift in Sources */,
+				2B494E362A2C9C6D0052B2FC /* Binding+Equatable.swift in Sources */,
 				2B57CDA52A2C3027000F5181 /* ListsViewModel.swift in Sources */,
+				2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */,
 				2B055DC92A2BFDEF004E8214 /* MinimaList_iOSApp.swift in Sources */,
 				2B055DF52A2BFFCB004E8214 /* LeanList.swift in Sources */,
 				2B57CDAB2A2C3DBF000F5181 /* LeanListRowView.swift in Sources */,
@@ -393,8 +412,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B494E382A2CA56F0052B2FC /* AddListViewUITests.swift in Sources */,
 				2B57CDB32A2C8CE4000F5181 /* XCUIElementQuery+Utils.swift in Sources */,
-				2B055DE52A2BFDF0004E8214 /* MinimaList_iOSUITests.swift in Sources */,
+				2B055DE52A2BFDF0004E8214 /* ListsViewUITests.swift in Sources */,
 				2B57CDB42A2C8CF4000F5181 /* NSPredicate+Utils.swift in Sources */,
 				2B055DE72A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift in Sources */,
 				2B57CDAE2A2C5F6B000F5181 /* XCTestCase+Utils.swift in Sources */,

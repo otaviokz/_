@@ -8,6 +8,7 @@
 import Foundation
 
 class PreviewListsViewModel: ListsViewModelType {
+    
     var lists: [LeanList] = [
         LeanList("Groceries", footNote: "Try Farmers Market first"),
         LeanList("High Street Shopping"),
@@ -18,5 +19,7 @@ class PreviewListsViewModel: ListsViewModelType {
     
     var isLoadingLists: Bool = false
     
-    func onAppear() { }
+    func onAppear() {}
+    
+    func createList(_ name: String, footNote: String?) {}
 }
