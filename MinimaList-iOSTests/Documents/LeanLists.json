@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Groceries",
+        "footNote": "Try Farmers Market first"
+    },
+    {
+        "name": "ToDo",
+        "footNote": null
+    },
+    {
+        "name": "SwiftUI Main Topics",
+        "footNote": "Tech Interview is next week"
+    }
+]
