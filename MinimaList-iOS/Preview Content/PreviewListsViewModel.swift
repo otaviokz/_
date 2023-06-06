@@ -8,6 +8,10 @@
 import Foundation
 
 class PreviewListsViewModel: ListsViewModelType {
+    var isLoading: Bool = false
+    var unavailableNames: [String] {
+        lists.map { $0.name.lowercased() }
+    }
     
     var lists: [LeanList] = [
         LeanList("Groceries", footNote: "Try Farmers Market first"),
@@ -17,9 +21,12 @@ class PreviewListsViewModel: ListsViewModelType {
         LeanList("Movies"),
     ]
     
-    var isLoadingLists: Bool = false
-    
     func onAppear() {}
     
+    init() {
+        
+    }
+    
     func createList(_ name: String, footNote: String?) {}
+    func remove(at: IndexSet) {}
 }

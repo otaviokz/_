@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "git@github.com:otaviokz/SwiftUITestUtils.git",
       "state" : {
-        "revision" : "f3f0e2aed75acee1a59ac1260247c601479ee06f",
-        "version" : "0.0.2"
+        "revision" : "bc92fa50de6a58a0b3ae90cd0ffae6a6c304cbee",
+        "version" : "0.0.5"
       }
     }
   ],

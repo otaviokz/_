@@ -20,6 +20,10 @@
 		2B055E002A2C078A004E8214 /* Groceries.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055DFF2A2C078A004E8214 /* Groceries.json */; };
 		2B055E022A2C0C65004E8214 /* LeanLists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2B055E012A2C0C65004E8214 /* LeanLists.json */; };
 		2B055E042A2C0CF8004E8214 /* LeanListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B055E032A2C0CF8004E8214 /* LeanListTests.swift */; };
+		2B1510502A2D101F009203E2 /* ListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B15104F2A2D101F009203E2 /* ListItemsView.swift */; };
+		2B1510522A2D1783009203E2 /* ListItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1510512A2D1783009203E2 /* ListItemRowView.swift */; };
+		2B1510542A2D2E2F009203E2 /* ItemsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1510532A2D2E2F009203E2 /* ItemsViewModelType.swift */; };
+		2B1510562A2D2E52009203E2 /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1510552A2D2E52009203E2 /* ItemsViewModel.swift */; };
 		2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E302A2C9B880052B2FC /* AddListView.swift */; };
 		2B494E362A2C9C6D0052B2FC /* Binding+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */; };
 		2B494E382A2CA56F0052B2FC /* AddListViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */; };
@@ -28,10 +32,13 @@
 		2B57CDA72A2C3054000F5181 /* ListsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA62A2C3054000F5181 /* ListsViewModelType.swift */; };
 		2B57CDA92A2C3715000F5181 /* PreviewListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDA82A2C3715000F5181 /* PreviewListsViewModel.swift */; };
 		2B57CDAB2A2C3DBF000F5181 /* LeanListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDAA2A2C3DBF000F5181 /* LeanListRowView.swift */; };
-		2B57CDAE2A2C5F6B000F5181 /* XCTestCase+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDAC2A2C5F36000F5181 /* XCTestCase+Utils.swift */; };
-		2B57CDB32A2C8CE4000F5181 /* XCUIElementQuery+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDB12A2C8CA6000F5181 /* XCUIElementQuery+Utils.swift */; };
-		2B57CDB42A2C8CF4000F5181 /* NSPredicate+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B57CDAF2A2C8C8B000F5181 /* NSPredicate+Utils.swift */; };
 		2B57CDBE2A2C990E000F5181 /* SwiftUITestUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 2B57CDBD2A2C990E000F5181 /* SwiftUITestUtils */; };
+		2B62A5502A2ED33E000EE730 /* PreviewItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62A54F2A2ED33E000EE730 /* PreviewItemsViewModel.swift */; };
+		2B62A5562A2EDB49000EE730 /* View+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62A5552A2EDB49000EE730 /* View+Utils.swift */; };
+		2B62A5582A2EF1D1000EE730 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62A5572A2EF1D1000EE730 /* AddItemView.swift */; };
+		2B62A55A2A2EF4E5000EE730 /* FormErrorText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62A5592A2EF4E5000EE730 /* FormErrorText.swift */; };
+		2B62A55C2A2EF595000EE730 /* RoundBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B62A55B2A2EF595000EE730 /* RoundBorderedTextField.swift */; };
+		2BE2C37F2A2E9FEF007DAE8F /* ItemsViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE2C37E2A2E9FEF007DAE8F /* ItemsViewUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +76,10 @@
 		2B055DFF2A2C078A004E8214 /* Groceries.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Groceries.json; sourceTree = "<group>"; };
 		2B055E012A2C0C65004E8214 /* LeanLists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LeanLists.json; sourceTree = "<group>"; };
 		2B055E032A2C0CF8004E8214 /* LeanListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanListTests.swift; sourceTree = "<group>"; };
+		2B15104F2A2D101F009203E2 /* ListItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemsView.swift; sourceTree = "<group>"; };
+		2B1510512A2D1783009203E2 /* ListItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemRowView.swift; sourceTree = "<group>"; };
+		2B1510532A2D2E2F009203E2 /* ItemsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModelType.swift; sourceTree = "<group>"; };
+		2B1510552A2D2E52009203E2 /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
 		2B494E302A2C9B880052B2FC /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Equatable.swift"; sourceTree = "<group>"; };
 		2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewUITests.swift; sourceTree = "<group>"; };
@@ -77,9 +88,12 @@
 		2B57CDA62A2C3054000F5181 /* ListsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewModelType.swift; sourceTree = "<group>"; };
 		2B57CDA82A2C3715000F5181 /* PreviewListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewListsViewModel.swift; sourceTree = "<group>"; };
 		2B57CDAA2A2C3DBF000F5181 /* LeanListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanListRowView.swift; sourceTree = "<group>"; };
-		2B57CDAC2A2C5F36000F5181 /* XCTestCase+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Utils.swift"; sourceTree = "<group>"; };
-		2B57CDAF2A2C8C8B000F5181 /* NSPredicate+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPredicate+Utils.swift"; sourceTree = "<group>"; };
-		2B57CDB12A2C8CA6000F5181 /* XCUIElementQuery+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElementQuery+Utils.swift"; sourceTree = "<group>"; };
+		2B62A54F2A2ED33E000EE730 /* PreviewItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewItemsViewModel.swift; sourceTree = "<group>"; };
+		2B62A5552A2EDB49000EE730 /* View+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Utils.swift"; sourceTree = "<group>"; };
+		2B62A5572A2EF1D1000EE730 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		2B62A5592A2EF4E5000EE730 /* FormErrorText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormErrorText.swift; sourceTree = "<group>"; };
+		2B62A55B2A2EF595000EE730 /* RoundBorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundBorderedTextField.swift; sourceTree = "<group>"; };
+		2BE2C37E2A2E9FEF007DAE8F /* ItemsViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +162,7 @@
 			children = (
 				2B055DD02A2BFDF0004E8214 /* Preview Assets.xcassets */,
 				2B57CDA82A2C3715000F5181 /* PreviewListsViewModel.swift */,
+				2B62A54F2A2ED33E000EE730 /* PreviewItemsViewModel.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -166,10 +181,10 @@
 		2B055DE32A2BFDF0004E8214 /* MinimaList-iOSUITests */ = {
 			isa = PBXGroup;
 			children = (
-				2B055DFB2A2C05FB004E8214 /* Utils */,
 				2B055DE42A2BFDF0004E8214 /* ListsViewUITests.swift */,
 				2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */,
 				2B055DE62A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift */,
+				2BE2C37E2A2E9FEF007DAE8F /* ItemsViewUITests.swift */,
 			);
 			path = "MinimaList-iOSUITests";
 			sourceTree = "<group>";
@@ -192,16 +207,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2B055DFB2A2C05FB004E8214 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				2B57CDAC2A2C5F36000F5181 /* XCTestCase+Utils.swift */,
-				2B57CDAF2A2C8C8B000F5181 /* NSPredicate+Utils.swift */,
-				2B57CDB12A2C8CA6000F5181 /* XCUIElementQuery+Utils.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		2B055DFE2A2C0699004E8214 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */,
+				2B62A5552A2EDB49000EE730 /* View+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +231,11 @@
 				2B57CDA12A2C2F0B000F5181 /* ListsView.swift */,
 				2B57CDAA2A2C3DBF000F5181 /* LeanListRowView.swift */,
 				2B494E302A2C9B880052B2FC /* AddListView.swift */,
+				2B15104F2A2D101F009203E2 /* ListItemsView.swift */,
+				2B1510512A2D1783009203E2 /* ListItemRowView.swift */,
+				2B62A5572A2EF1D1000EE730 /* AddItemView.swift */,
+				2B62A5592A2EF4E5000EE730 /* FormErrorText.swift */,
+				2B62A55B2A2EF595000EE730 /* RoundBorderedTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -234,6 +245,8 @@
 			children = (
 				2B57CDA42A2C3027000F5181 /* ListsViewModel.swift */,
 				2B57CDA62A2C3054000F5181 /* ListsViewModelType.swift */,
+				2B1510532A2D2E2F009203E2 /* ItemsViewModelType.swift */,
+				2B1510552A2D2E52009203E2 /* ItemsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -384,14 +397,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B62A5582A2EF1D1000EE730 /* AddItemView.swift in Sources */,
+				2B62A55A2A2EF4E5000EE730 /* FormErrorText.swift in Sources */,
+				2B1510502A2D101F009203E2 /* ListItemsView.swift in Sources */,
 				2B055DF72A2BFFDA004E8214 /* ListItem.swift in Sources */,
+				2B62A5562A2EDB49000EE730 /* View+Utils.swift in Sources */,
+				2B1510522A2D1783009203E2 /* ListItemRowView.swift in Sources */,
 				2B57CDA92A2C3715000F5181 /* PreviewListsViewModel.swift in Sources */,
+				2B62A55C2A2EF595000EE730 /* RoundBorderedTextField.swift in Sources */,
 				2B57CDA22A2C2F0B000F5181 /* ListsView.swift in Sources */,
+				2B62A5502A2ED33E000EE730 /* PreviewItemsViewModel.swift in Sources */,
 				2B57CDA72A2C3054000F5181 /* ListsViewModelType.swift in Sources */,
 				2B494E362A2C9C6D0052B2FC /* Binding+Equatable.swift in Sources */,
 				2B57CDA52A2C3027000F5181 /* ListsViewModel.swift in Sources */,
 				2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */,
 				2B055DC92A2BFDEF004E8214 /* MinimaList_iOSApp.swift in Sources */,
+				2B1510542A2D2E2F009203E2 /* ItemsViewModelType.swift in Sources */,
+				2B1510562A2D2E52009203E2 /* ItemsViewModel.swift in Sources */,
 				2B055DF52A2BFFCB004E8214 /* LeanList.swift in Sources */,
 				2B57CDAB2A2C3DBF000F5181 /* LeanListRowView.swift in Sources */,
 			);
@@ -413,11 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B494E382A2CA56F0052B2FC /* AddListViewUITests.swift in Sources */,
-				2B57CDB32A2C8CE4000F5181 /* XCUIElementQuery+Utils.swift in Sources */,
 				2B055DE52A2BFDF0004E8214 /* ListsViewUITests.swift in Sources */,
-				2B57CDB42A2C8CF4000F5181 /* NSPredicate+Utils.swift in Sources */,
 				2B055DE72A2BFDF0004E8214 /* MinimaList_iOSUITestsLaunchTests.swift in Sources */,
-				2B57CDAE2A2C5F6B000F5181 /* XCTestCase+Utils.swift in Sources */,
+				2BE2C37F2A2E9FEF007DAE8F /* ItemsViewUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +581,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MinimaLists;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -581,7 +602,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -601,6 +622,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MinimaLists;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -621,7 +643,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -775,7 +797,7 @@
 			repositoryURL = "git@github.com:otaviokz/SwiftUITestUtils.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.0.2;
+				minimumVersion = 0.0.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

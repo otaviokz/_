@@ -10,8 +10,10 @@ import Foundation
 
 protocol ListsViewModelType: ObservableObject {
     var lists: [LeanList] { get }
-    var isLoadingLists: Bool { get }
+    var isLoading: Bool { get }
+    var unavailableNames: [String] { get }
     
     func onAppear()
     func createList(_ name: String, footNote: String?)
+    func remove(at indexSet: IndexSet) 
 }

@@ -15,21 +15,23 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
         self.viewModel = viewModel
     }
     
-    
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.isLoadingLists {
+                if viewModel.isLoading {
                     ProgressView()
                         .controlSize(.large)
                         .foregroundColor(.blue)
-                    
                 } else {
                     List {
                         ForEach(viewModel.lists) { list in
-                            NavigationLink(destination: EmptyView()) {
+                            NavigationLink(destination: ListItemsView(list)) {
                                 LeanListRowView(list: list)
                             }
+                            .accentColor(.secondary)
+                        }
+                        .onDelete { indexSet in
+                            viewModel.remove(at: indexSet)
                         }
                     }
                 }
@@ -39,50 +41,39 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                 viewModel.onAppear()
             }
             .sheet(isPresented: $showAddListView) {
-                AddListView(
-                    unavailableListNames: unavailableListNames) {
-                        showAddListView = false
-                    } onAdd: { name, footNote in
-                        showAddListView = false
-                        self.viewModel.createList(name, footNote: footNote)
-                    }
+                AddListView(unavailable: viewModel.unavailableNames) {
+                    showAddListView = false
+                } onAdd: { name, footNote in
+                    showAddListView = false
+                    self.viewModel.createList(name, footNote: footNote)
+                }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image("add.list")
-                        .resizable()
-                        .frame(width: 32, height: 32)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
-                            showAddListView = true
-                        }
-                        .padding(.trailing, 16)
-                        .padding(.top, 6)
+                if !showAddListView {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        addListToolbarImage
+                    }
                 }
             }
         }
     }
     
     var unavailableListNames: [String] {
-        viewModel.lists.reduce([]) {
-            [$1.name.lowercased()] + $0
-        }
+        viewModel.lists.map { $0.name.lowercased() }
     }
-}
-
-private extension ListsView {
-    var lists: some View {
-        List {
-            ForEach(viewModel.lists) { list in
-                NavigationLink(destination: EmptyView()) {
-                    LeanListRowView(list: list)
-                }
+    
+    var addListToolbarImage: some View {
+        Image("add.list")
+            .resizable()
+            .frame(width: 32, height: 32)
+            .foregroundColor(.blue)
+            .onTapGesture {
+                showAddListView = true
             }
-        }
+            .padding(.trailing, 16)
+            .padding(.top, 6)
     }
 }
-
-
 
 struct ListsView_Previews: PreviewProvider {
     static var previews: some View {
