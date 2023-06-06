@@ -15,7 +15,7 @@ struct AddItemView: View {
     @State private var nameAlreadyUsed = false
     private let onDismiss: () -> Void
     private let onAdd: (ListItem) -> Void
-    @FocusState var focus: AddItemFocusElement?
+    @FocusState private var focus: FocusElement?
     
     init(_ listName: String, unavailableNames: Set<String>, onDismiss: @escaping () -> Void, onAdd: @escaping (ListItem) -> Void) {
         self.listName = listName
@@ -37,7 +37,7 @@ struct AddItemView: View {
                     }
             }
             
-            RoundBorderedTextField(title: "Name", text: $name)
+            RoundBorderedTextField("Name", text: $name)
                 .focused($focus, equals: .name)
                 .onSubmit {
                     focus = .note
@@ -49,8 +49,7 @@ struct AddItemView: View {
                 FormErrorText(text: "Max 64 characteres")
             }
             
-            
-            BigRoundBorderedTextField(title: "Notes", height: 200, text: $note)
+            BigRoundBorderedTextField("Notes", height: 200, text: $note)
                 .focused($focus, equals: .note)    
             
             if note.trimmingSpaces.count > 256 {
@@ -84,13 +83,15 @@ struct AddItemView: View {
     }
 }
 
+private extension AddItemView {
+    enum FocusElement: Hashable {
+        case name
+        case note
+    }
+}
+
 struct AddItemView_Previews: PreviewProvider {
     static var previews: some View {
         AddItemView("List", unavailableNames: [], onDismiss: {}) { item in }
     }
-}
-
-enum AddItemFocusElement: Hashable {
-    case name
-    case note
 }

@@ -14,10 +14,11 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
     @State private var showAddItemView = false
     private let selectedList: LeanList
     
-    init(_ selectedList: LeanList, viewModel: ViewModel = ItemsViewModel()) {
-        self.viewModel = viewModel
-        self.selectedList = selectedList
+    init(selecetList: LeanList) {
+        self.selectedList = selecetList
+        self.viewModel = ViewModel(selectedList: selecetList)
     }
+    
     
     var body: some View {
         VStack {
@@ -44,7 +45,7 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
             viewModel.refresh()
         }
         .onAppear {
-            viewModel.onAppear(selectedList)
+            viewModel.onAppear()
         }
         .navigationBarTitle(selectedList.name)
         .sheet(isPresented: $showNote) {
@@ -114,8 +115,8 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
     }
 }
 
-struct ListItemsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemsView(LeanList("Groceries"), viewModel: PreviewItemsViewModel())
-    }
-}
+//struct ListItemsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ItemsView<ViewModel: ItemsViewModelTypez>(LeanList("Groceries"), viewModel: PreviewItemsViewModel(selectedList: LeanList("")))
+//    }
+//}

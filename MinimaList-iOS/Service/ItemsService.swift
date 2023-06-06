@@ -9,9 +9,14 @@ import Foundation
 
 class ItemsService: ItemsServiceable {
     private var listItemsURL: URL { domainURL.appendingPathComponent("show/items") }
+    private let selecteList: LeanList
     
-    func fetchItems(for list: LeanList) async throws -> [ListItem] {
-        let (data, response) = try await session.data(for: .get(listItemsURL.appendingPathComponent(list.name)))
+    init(selectedList: LeanList) {
+        self.selecteList = selectedList
+    }
+    
+    func fetchItems() async throws -> [ListItem] {
+        let (data, response) = try await session.data(for: .get(listItemsURL.appendingPathComponent(selecteList.name)))
         try handleUrlResponse(response)
         let items = try JSONDecoder().decode([ListItem].self, from: data)
         return items.sortedByName

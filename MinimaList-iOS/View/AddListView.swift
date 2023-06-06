@@ -11,14 +11,14 @@ struct AddListView: View {
     @State private var name = ""
     @State private var footNote = ""
     @State private var nameAlreadyUsed: Bool = false
-    @FocusState var focus: AddListFocusElement?
+    @FocusState private var focus: FocusElement?
     
     let unavailableListNames: Set<String>
     let onDismiss: () -> Void
     let onAdd: (String, String?) -> Void
 
-    init(unavailable: Set<String>, onDismiss: @escaping () -> Void, onAdd: @escaping (String, String?) -> Void) {
-        self.unavailableListNames = unavailable
+    init(unavailableNames: Set<String>, onDismiss: @escaping () -> Void, onAdd: @escaping (String, String?) -> Void) {
+        self.unavailableListNames = unavailableNames
         self.onAdd = onAdd
         self.onDismiss = onDismiss
     }
@@ -37,20 +37,21 @@ struct AddListView: View {
             }
             
             // Mark: List name
-            RoundBorderedTextField(title: "List name", text: $name)
+            RoundBorderedTextField("List name", text: $name)
                 .focused($focus, equals: .name)
                 .onSubmit {
                     focus = .footNote
                 }
             
             if nameAlreadyUsed {
-                FormErrorText(text: "\(name.trimmingSpaces) already used.")
+                FormErrorText(text: "List name '\(name.trimmingSpaces)' already used.")
             } else if name.trimmingSpaces.count > 64 {
                 FormErrorText(text: "Max 64 characters")
             }
         
-            BigRoundBorderedTextField(title: "Foot note", height: 100, text: $footNote)
+            BigRoundBorderedTextField("Foot note", height: 100, text: $footNote)
                 .focused($focus, equals: .footNote)
+//                .identifier("Foot note")
             
             if footNote.trimmingSpaces.count > 128 {
                 FormErrorText(text: "Max 128 characters")
@@ -81,7 +82,15 @@ struct AddListView: View {
     }
 }
 
-enum AddListFocusElement: Hashable {
-    case name
-    case footNote
+private extension AddListView {
+    enum FocusElement: Hashable {
+        case name
+        case footNote
+    }
+}
+
+struct AddListView_Previews: PreviewProvider {
+    static var previews: some View {
+        AddListView(unavailableNames: [], onDismiss: {}) { _, _ in }
+    }
 }

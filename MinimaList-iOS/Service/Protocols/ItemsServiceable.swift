@@ -8,7 +8,7 @@
 import Foundation
 
 protocol ItemsServiceable: MinimaListsServiceable {
-    func fetchItems(for list: LeanList) async throws -> [ListItem]
+    func fetchItems() async throws -> [ListItem]
     func addItem(_ item: ListItem) async throws -> Bool
     func removeItem(_ item: ListItem) async throws -> Bool
 }

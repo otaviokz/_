@@ -15,17 +15,20 @@ class PreviewItemsViewModel: ItemsViewModelType {
     var unavailableNames: Set<String> {
         Set(items.map { $0.name.dbKeyComparable })
     }
-    var selectedList: LeanList?
+    var selectedList: LeanList
+    private(set) var service: ItemsServiceable
     
-    func onAppear(_ selectedList: LeanList) {
+    required init(selectedList: LeanList) {
         self.selectedList = selectedList
-        fetchItems(for: selectedList)
+        self.service = ItemsService(selectedList: selectedList)
     }
+    
+    func onAppear() {
+        fetchItems()
+    }
+    
     func refresh() {
-        if let list = selectedList {
-            fetchItems(for: list)
-        }
-            
+        fetchItems()
     }
     
     func addItem(_ item: ListItem) {
@@ -49,7 +52,7 @@ class PreviewItemsViewModel: ItemsViewModelType {
 
 
 private extension PreviewItemsViewModel {
-    func fetchItems(for selectedList: LeanList) {
+    func fetchItems() {
         isLoading = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
             if selectedList.name == "Groceries" {
@@ -63,7 +66,7 @@ private extension PreviewItemsViewModel {
         [
             ListItem("Carrots", note: "6 Big ones or 12 small ones", list: "Groceries"),
             ListItem("12 Eggs", list: "Groceries"),
-            ListItem("Anchovies", note: "The fresh ones, those canned are way too salty. The fresh ones, those canned are way too salty. The fresh ones, those canned are way too salty. The fresh ones, those canned are way too salty.", list: "Groceries"),
+            ListItem("Anchovies", note: "The fresh ones, those canned are way too salty.", list: "Groceries"),
             ListItem("4 AA Batteries", list: "Groceries"),
             ListItem("Shampoo", note: "Clean & Clear", list: "Groceries"),
             ListItem("Dove Soap", list: "Groceries")

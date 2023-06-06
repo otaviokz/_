@@ -25,10 +25,18 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                 } else {
                     List {
                         ForEach(viewModel.lists) { list in
-                            NavigationLink(destination: ItemsView(list)) {
-                                LeanListRowView(list: list)
+                            if isRunningTets {
+                                NavigationLink(destination: ItemsView<PreviewItemsViewModel>(selecetList: list)) {
+                                    LeanListRowView(list: list)
+                                }
+                                .accentColor(.secondary)
+                            } else {
+                                NavigationLink(destination: ItemsView<ItemsViewModel>(selecetList: list)) {
+                                    LeanListRowView(list: list)
+                                }
+                                .accentColor(.secondary)
                             }
-                            .accentColor(.secondary)
+                            
                         }
                         .onDelete { indexSet in
                             viewModel.remove(at: indexSet)
@@ -44,7 +52,7 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                 viewModel.onAppear()
             }
             .sheet(isPresented: $showAddListView) {
-                AddListView(unavailable: viewModel.unavailableNames) {
+                AddListView(unavailableNames: viewModel.unavailableNames) {
                     showAddListView = false
                 } onAdd: { name, footNote in
                     showAddListView = false

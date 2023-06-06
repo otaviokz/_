@@ -11,7 +11,16 @@ import SwiftUI
 struct MinimaList_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            ListsView(viewModel: ListsViewModel())
+            if isRunningTets {
+                ListsView(viewModel: PreviewListsViewModel())
+            } else {
+                ListsView(viewModel: ListsViewModel())
+            }
+            
         }
+    }
+    
+    var isRunningTets: Bool {
+        ProcessInfo().arguments.contains("testMode")
     }
 }

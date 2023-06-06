@@ -26,7 +26,7 @@ final class ItemsViewUITests: XCTestCase {
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
@@ -39,7 +39,7 @@ final class ItemsViewUITests: XCTestCase {
     
     func testDisplayItems() throws {
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
         navigatesToGroceriesListItems(app: app)
         
         XCTAssert(app.staticTexts.matching(label: "12 Eggs").exists)
@@ -55,7 +55,7 @@ final class ItemsViewUITests: XCTestCase {
     
     func testDisplaysInfo() throws {
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
         navigatesToGroceriesListItems(app: app)
         
         app.images.matching(identifier: "Anchovies.info.img").element.tap()

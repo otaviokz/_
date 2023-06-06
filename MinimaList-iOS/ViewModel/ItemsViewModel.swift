@@ -12,16 +12,17 @@ import SwiftUI
 class ItemsViewModel: ItemsViewModelType {
     @MainActor @Published private(set) var items: [ListItem] = []
     @MainActor @Published var isLoading: Bool = false
-    @MainActor @State private var loading = false {
-        didSet {
-            isLoading = loading
-        }
-    }
     private(set) var service: ItemsServiceable
     @MainActor var errorSubject = PassthroughSubject<ServiceError, Never>()
-    private var selectedList: LeanList?
+    internal var selectedList: LeanList
+
+    required init(selectedList: LeanList) {
+        self.selectedList = selectedList
+        self.service = ItemsService(selectedList: selectedList)
+    }
     
-    init(service: ItemsServiceable = ItemsService()) {
+    init(selecetList: LeanList, service: ItemsServiceable) {
+        self.selectedList = selecetList
         self.service = service
     }
     
@@ -31,23 +32,20 @@ class ItemsViewModel: ItemsViewModelType {
     }
     
     @MainActor
-    func onAppear(_ selectedList: LeanList) {
-        self.selectedList = selectedList
+    func onAppear() {
         fetchItems(for: selectedList)
     }
     
     @MainActor
     func refresh() {
-        if let list = selectedList {
-            fetchItems(for: list)
-        }
+        fetchItems(for: selectedList)
     }
     
     @MainActor
     func fetchItems(for list: LeanList) {
         isLoading = true
         runInTask { [unowned self] in
-            items = try await service.fetchItems(for: list)
+            items = try await service.fetchItems()
             isLoading = false
         }
     }
