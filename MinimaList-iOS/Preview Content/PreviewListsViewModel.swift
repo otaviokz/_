@@ -9,6 +9,10 @@ import Foundation
 
 class PreviewListsViewModel: ListsViewModelType {
     var isLoading: Bool = false
+    var unavailableNames: [String] {
+        lists.map { $0.name.lowercased() }
+    }
+    
     var lists: [LeanList] = [
         LeanList("Groceries", footNote: "Try Farmers Market first"),
         LeanList("High Street Shopping"),
@@ -24,11 +28,5 @@ class PreviewListsViewModel: ListsViewModelType {
     }
     
     func createList(_ name: String, footNote: String?) {}
-}
-
-class PreviewItemsViewModel: ItemsViewModelType {
-    @Published private(set) var items: [ListItem] = []
-    @Published private(set) var isLoading: Bool = false
-    
-    func onAppear(_ selectedList: LeanList) {}
+    func remove(at: IndexSet) {}
 }

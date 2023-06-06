@@ -10,6 +10,9 @@ import Foundation
 class ListsViewModel: ListsViewModelType {
     @Published private(set) var lists: [LeanList] = []
     @Published private(set) var isLoading = false
+    var unavailableNames: [String] {
+        lists.map { $0.name.lowercased() }
+    }
     private var shouldFetchLists = true
     
     func onAppear() {
@@ -31,7 +34,16 @@ class ListsViewModel: ListsViewModelType {
         var aux = lists
         aux.append(LeanList(name, footNote: footNote))
         lists = aux.sortedByName
-        
+    }
+    
+    func remove(at indexSet: IndexSet) {
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
+            if let index = indexSet.first {
+                lists.remove(at: index)
+            }
+            isLoading = false
+        }
     }
 }
 

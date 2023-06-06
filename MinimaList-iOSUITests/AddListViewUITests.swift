@@ -27,6 +27,7 @@ final class AddListViewUITests: XCTestCase {
         app.launch()
         
         // Given
+        
         waitExists(app.images.element(matching: .label("add.list")), timeOut: 4)
         
         // When
@@ -34,6 +35,7 @@ final class AddListViewUITests: XCTestCase {
         waitExists(app.textFields.matching(identifier: "List name").element, timeOut: 4)
         
         // Then
+        XCTAssert(app.navigationBars.staticTexts.matching(label: "Lists").exists)
         XCTAssert(app.textFields.matching(identifier: "Foot note").element.exists)
         XCTAssert(app.images.element(matching: .label("x.circle")).exists)
     }

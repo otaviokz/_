@@ -24,21 +24,27 @@ final class MinimaList_iOSUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testBasics() throws {
         let app = XCUIApplication()
         app.launch()
-        waitExists(app.progressIndicators.element, timeOut: 2)
         
-        XCTAssert(app.navigationBars.staticTexts.matching(.label("Lists")).element.exists)
-        XCTAssert(app.images.element(matching: .label("add.list")).exists)
+        // Given
+        waitExists(app.images.element(matching: .label("add.list")), timeOut: 4)
+        
+        // When
+        app.images.element(matching: .label("add.list")).firstMatch.tap()
+        waitExists(app.textFields.matching(identifier: "List name").element, timeOut: 4)
+        
+        // Then
+        XCTAssert(app.textFields.matching(identifier: "Foot note").element.exists)
+        XCTAssert(app.images.element(matching: .label("x.circle")).exists)
     }
     
     func testShowsFetchedListsAfterIndicator() throws {
         let app = XCUIApplication()
         app.launch()
         waitDontExists(app.progressIndicators.element, timeOut: 3)
-        
         XCTAssert(app.staticTexts.matching(label: "Groceries").exists)
         XCTAssert(app.staticTexts.matching(label: "High Street Shopping").exists)
         XCTAssert(app.staticTexts.matching(label: "SwiftUI & Combine: Main Chapters").exists)

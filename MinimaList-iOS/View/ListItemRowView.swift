@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct ListItemRowView: View {
-    let item: ListItem
-    let onInfoTap: (String) -> Void
+    private let item: ListItem
+    private let onInfoTap: (String) -> Void
     
     init(_ item: ListItem, onInfoTap: @escaping (String) -> Void) {
         self.item = item
@@ -19,9 +19,9 @@ struct ListItemRowView: View {
     var body: some View {
         HStack {
             Text(item.name)
-                .font(.headline)
+                .font(.title3)
                 .fontWeight(.semibold)
-                .accessibilityIdentifier(item.name)
+                .identifier(item.name)
             
             Spacer()
             
@@ -33,7 +33,7 @@ struct ListItemRowView: View {
                     .onTapGesture {
                         self.onInfoTap(notes)
                     }
-                    .accessibility(identifier: "\(item.name)-info-img")
+                    .identifier("\(item.name).info.img")
             }
         }
     }

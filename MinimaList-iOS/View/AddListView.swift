@@ -11,15 +11,14 @@ struct AddListView: View {
     @State private var name = ""
     @State private var footNote = ""
     @State private var nameAlreadyUsed: Bool = false
-    @State private var showNameUsedAlert: Bool = false
-    @FocusState var focus: FocusElement?
+    @FocusState var focus: AddListFocusElement?
     
     let unavailableListNames: [String]
     let onDismiss: () -> Void
     let onAdd: (String, String?) -> Void
 
-    init(unavailableListNames: [String], onDismiss: @escaping () -> Void, onAdd: @escaping (String, String?) -> Void) {
-        self.unavailableListNames = unavailableListNames
+    init(unavailable: [String], onDismiss: @escaping () -> Void, onAdd: @escaping (String, String?) -> Void) {
+        self.unavailableListNames = unavailable
         self.onAdd = onAdd
         self.onDismiss = onDismiss
     }
@@ -31,14 +30,13 @@ struct AddListView: View {
                 Image(systemName: "x.circle")
                     .resizable()
                     .frame(width: 24, height: 24)
+                    .padding(24)
                     .onTapGesture {
                         onDismiss()
                     }
-                    .padding(.vertical, 24)
-                    .padding(.trailing, 24)
-                    .foregroundColor(.blue)
-                
             }
+            
+            // Mark: List name
             TextField("List name", text: $name)
                 .frame(height: 44)
                 .padding(.horizontal, 24)
@@ -47,32 +45,19 @@ struct AddListView: View {
                         .stroke(Color.primary, lineWidth: 1)
                 )
                 .padding(.horizontal, 16)
+                .focused($focus, equals: .name)
+                .identifier("List name")
                 .onSubmit {
-                    focus = FocusElement.footNote
+                    focus = .footNote
                 }
-                .focused($focus, equals: FocusElement.name)
-                .accessibility(identifier: "List name")
             
             if nameAlreadyUsed {
-                HStack {
-                    Text("\(name) already used.")
-                        .foregroundColor(.red)
-                        .font(.subheadline)
-                        .fontWeight(.regular)
-                        .accessibilityIdentifier("Name already used")
-                    Spacer()
-                }
-                .padding(.horizontal, 16)
+                FormErrorText(text: "\(name) already used.")
             } else if name.count > 64 {
-                HStack {
-                    Text("Max 64 characters")
-                        .foregroundColor(.red)
-                        .font(.subheadline)
-                        .fontWeight(.regular)
-                    Spacer()
-                }
+                FormErrorText(text: "Max 64 characters")
             }
-            
+        
+            // Mark: List footNote
             TextField("Foot note", text: $footNote)
                 .frame(height: 100, alignment: .topLeading)
                 .padding(.horizontal, 24)
@@ -84,65 +69,50 @@ struct AddListView: View {
                 .padding(.horizontal, 16)
                 .multilineTextAlignment(.leading)
                 .truncationMode(.tail)
-                .focused($focus, equals: FocusElement.footNote)
-                .accessibility(identifier: "Foot note")
+                .focused($focus, equals: .footNote)
+                .identifier("Foot note")
             
             if footNote.count > 128 {
-                HStack {
-                    Text("Max 128 characters")
-                        .foregroundColor(.red)
-                        .font(.subheadline)
-                        .fontWeight(.regular)
-                    Spacer()
-                }
+                FormErrorText(text: "Max 128 characters")
             }
             
             Spacer()
             
-            if showButton {
+            // Mark: Save Buttpn
+            if presentSaveButton {
                 saveButton
-                    .accessibility(identifier: "Save")
             }
         }
         .onAppear {
-            focus = FocusElement.name
+            focus = .name
         }
         .onChange(of: $name) { _ in
             nameAlreadyUsed = unavailableListNames.contains(name.lowercased())
         }
-        .alert(isPresented: $showNameUsedAlert) {
-            Alert(
-                title: Text("Woops"),
-                message: Text("List name unavailable."),
-                dismissButton: .default(Text("OK"))
-            )
-        }
     }
     
-    var showButton: Bool {
+    var presentSaveButton: Bool {
         !nameAlreadyUsed && !name.isEmpty && name.count <= 64 && footNote.count <= 128
     }
     
     var saveButton: some View {
         return Button("Save") {
-            if unavailableListNames.contains(name.lowercased()) {
-                showNameUsedAlert = true
-            }
-            else {
-                onAdd(name, footNote.isEmpty ? nil : footNote)
-            }
+            onAdd(name, footNote.isEmpty ? nil : footNote)
         }
+        .foregroundColor(.blue)
+        .accentColor(.secondary)
         .font(.headline)
         .frame(width: 140, height: 38, alignment: .center)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(.blue, lineWidth: 2)
+                .stroke(.blue, lineWidth: 1)
         )
         .padding()
+        .identifier("Save")
     }
 }
 
-enum FocusElement: Hashable {
+enum AddListFocusElement: Hashable {
     case name
     case footNote
 }
