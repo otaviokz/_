@@ -6,56 +6,74 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
 class ItemsViewModel: ItemsViewModelType {
-    @Published private(set) var items: [ListItem] = []
-    @Published private(set) var isLoading: Bool = false
-    var unavailableNames: [String] {
-        items.map { $0.name.lowercased() }
+    @MainActor @Published private(set) var items: [ListItem] = []
+    @MainActor @Published var isLoading: Bool = false
+    @MainActor @State private var loading = false {
+        didSet {
+            isLoading = loading
+        }
     }
-    func onAppear(_ selectedList: LeanList) {
-        fetchItems(for: selectedList.name)
+    private(set) var service: ItemsServiceable
+    @MainActor var errorSubject = PassthroughSubject<ServiceError, Never>()
+    private var selectedList: LeanList?
+    
+    init(service: ItemsServiceable = ItemsService()) {
+        self.service = service
     }
     
-    func fetchItems(for listName: String) {
+    @MainActor
+    var unavailableNames: Set<String> {
+        Set(items.map { $0.name.dbKeyComparable })
+    }
+    
+    @MainActor
+    func onAppear(_ selectedList: LeanList) {
+        self.selectedList = selectedList
+        fetchItems(for: selectedList)
+    }
+    
+    @MainActor
+    func refresh() {
+        if let list = selectedList {
+            fetchItems(for: list)
+        }
+    }
+    
+    @MainActor
+    func fetchItems(for list: LeanList) {
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-            if listName == "Groceries" {
-                items = mockItemsGroceries.sortedByName
-            }
+        runInTask { [unowned self] in
+            items = try await service.fetchItems(for: list)
             isLoading = false
         }
     }
     
+    @MainActor
     func addItem(_ item: ListItem) {
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-            items = (items + [item]).sortedByName
-            isLoading = false
-        }
-    }
-    
-    func remove(at indexSet: IndexSet) {
-        isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-            if let index = indexSet.first {
-                items.remove(at: index)
+        runInTask { [unowned self] in
+            if try await service.addItem(item) {
+                fetchItems(for: LeanList(item.list))
             }
             isLoading = false
         }
     }
-}
-
-
-private extension ItemsViewModel {
-    var mockItemsGroceries: [ListItem] {
-        [
-            ListItem("Carrots", notes: "6 Big ones or 12 small ones", list: "Groceries"),
-            ListItem("12 Eggs", list: "Groceries"),
-            ListItem("Anchovies", notes: "The fresh ones, those canned are way too salty. The fresh ones, those canned are way too salty. The fresh ones, those canned are way too salty. The fresh ones, those canned are way too salty.", list: "Groceries"),
-            ListItem("4 AA Batteries", list: "Groceries"),
-            ListItem("Shampoo", notes: "Clean & Clear", list: "Groceries"),
-            ListItem("Dove Soap", list: "Groceries")
-        ]
+    
+    @MainActor
+    func remove(at indexSet: IndexSet) {
+        if let index = indexSet.first {
+            let item = items[index]
+            isLoading = true
+            runInTask { [unowned self] in
+                if try await service.removeItem(item) {
+                    fetchItems(for: LeanList(item.list))
+                }
+                isLoading = false
+            }
+        }
     }
 }

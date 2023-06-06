@@ -19,19 +19,19 @@ struct ListItemRowView: View {
     var body: some View {
         HStack {
             Text(item.name)
-                .font(.title3)
+                .font(.headline)
                 .fontWeight(.semibold)
                 .identifier(item.name)
             
             Spacer()
             
-            if let notes = item.notes {
+            if let note = item.note {
                 Image(systemName: "info.circle")
                     .resizable()
                     .foregroundColor(.blue)
                     .frame(width: 20, height: 20)
                     .onTapGesture {
-                        self.onInfoTap(notes)
+                        self.onInfoTap(note)
                     }
                     .identifier("\(item.name).info.img")
             }
@@ -41,6 +41,6 @@ struct ListItemRowView: View {
 
 struct ListItemRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemRowView(ListItem("Bananas", notes: "Not the big ones", list: "Groceries")) { _ in }
+        ListItemRowView(ListItem("Bananas", note: "Not the big ones", list: "Groceries")) { _ in }
     }
 }

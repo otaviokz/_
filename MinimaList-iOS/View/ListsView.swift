@@ -25,7 +25,7 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                 } else {
                     List {
                         ForEach(viewModel.lists) { list in
-                            NavigationLink(destination: ListItemsView(list)) {
+                            NavigationLink(destination: ItemsView(list)) {
                                 LeanListRowView(list: list)
                             }
                             .accentColor(.secondary)
@@ -35,6 +35,9 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                         }
                     }
                 }
+            }
+            .refreshable {
+                viewModel.refresh()
             }
             .navigationTitle("Lists")
             .onAppear {
@@ -58,10 +61,6 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
         }
     }
     
-    var unavailableListNames: [String] {
-        viewModel.lists.map { $0.name.lowercased() }
-    }
-    
     var addListToolbarImage: some View {
         Image("add.list")
             .resizable()
@@ -80,4 +79,3 @@ struct ListsView_Previews: PreviewProvider {
         ListsView(viewModel: PreviewListsViewModel())
     }
 }
-

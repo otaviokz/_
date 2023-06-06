@@ -7,10 +7,9 @@
 
 import Foundation
 
-protocol ItemsViewModelType: ObservableObject {
+protocol ItemsViewModelType: ViewModelType, ObservableObject {
     var items: [ListItem] { get }
-    var isLoading: Bool { get }
-    var unavailableNames: [String] { get }
+    var unavailableNames: Set<String> { get }
     
     func onAppear(_ selectedList: LeanList)
     func addItem(_ item: ListItem)

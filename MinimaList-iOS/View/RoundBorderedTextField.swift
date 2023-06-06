@@ -14,14 +14,14 @@ struct RoundBorderedTextField: View {
     var body: some View {
         TextField(title, text: $text)
             .frame(height: 40)
-            .padding(.horizontal, 24)
+            .padding(.horizontal, 16)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.primary, lineWidth: 1)
             )
             .padding(.horizontal, 16)
+            .identifier(title)
     }
-    
 }
 
 //struct RoundBorderedTextField_Previews: PreviewProvider {

@@ -1,5 +1,5 @@
 //
-//  ListItemsView.swift
+//  ItemsView.swift
 //  MinimaLists-iOS
 //
 //  Created by Otávio Zabaleta on 04/06/2023.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
+struct ItemsView<ViewModel: ItemsViewModelType>: View {
     @ObservedObject private(set) var viewModel: ViewModel
     @State private var showNote = false
-    @State private var notesSheetData: (name: String, notes: String) = ("", "")
+    @State private var noteSheetData: (name: String, note: String) = ("", "")
     @State private var showAddItemView = false
     private let selectedList: LeanList
     
@@ -20,7 +20,6 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
     }
     
     var body: some View {
-        
         VStack {
             if viewModel.isLoading {
                 ProgressView()
@@ -30,9 +29,9 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
             } else {
                 List {
                     ForEach(viewModel.items) { item in
-                        ListItemRowView(item) { notes in
+                        ListItemRowView(item) { note in
                             self.showNote = true
-                            self.notesSheetData = (item.name, notes)
+                            self.noteSheetData = (item.name, note)
                         }
                     }
                     .onDelete { indexSet in
@@ -41,13 +40,16 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
                 }
             }
         }
+        .refreshable {
+            viewModel.refresh()
+        }
         .onAppear {
             viewModel.onAppear(selectedList)
         }
         .navigationBarTitle(selectedList.name)
         .sheet(isPresented: $showNote) {
             VStack(spacing: 24) {
-                Text(notesSheetData.name)
+                Text(noteSheetData.name)
                     .font(.title3)
                     .padding(12)
                     .multilineTextAlignment(.leading)
@@ -56,14 +58,13 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
                 
                 VStack {
                     HStack {
-                        Text(notesSheetData.notes)
+                        Text(noteSheetData.note)
                             .font(.headline)
                             .padding(12)
                             .truncationMode(.tail)
                             .multilineTextAlignment(.leading)
                             .lineLimit(40, reservesSpace: false)
                             .frame(alignment: .topLeading)
-                            .padding(EdgeInsets(top: 2, leading: 4, bottom: 2, trailing: 4))
                         Spacer()
                         
                     }
@@ -71,12 +72,12 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
                     
                     Spacer()
                 }
-                .frame(maxWidth: .infinity, minHeight: 60, maxHeight: 200)
+                .frame(maxWidth: .infinity, minHeight: 40, maxHeight: 200)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.primary, lineWidth: 1)
                 )
-                
+                .padding(.horizontal, 14)
                 Spacer()
             }
             .frame(maxWidth:. infinity)
@@ -84,7 +85,7 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
             .presentationDetents([.medium])
             .onDisappear {
                 showNote = false
-                notesSheetData = ("", "")
+                noteSheetData = ("", "")
             }
         }
         .sheet(isPresented: $showAddItemView) {
@@ -100,7 +101,7 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Image(systemName: "plus.square")
                         .resizable()
-                        .frame(width: 28, height: 28)
+                        .frame(width: 24, height: 24)
                         .foregroundColor(.blue)
                         .onTapGesture {
                             showAddItemView = true
@@ -115,6 +116,6 @@ struct ListItemsView<ViewModel: ItemsViewModelType & ObservableObject>: View {
 
 struct ListItemsView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemsView(LeanList("Groceries"), viewModel: PreviewItemsViewModel())
+        ItemsView(LeanList("Groceries"), viewModel: PreviewItemsViewModel())
     }
 }

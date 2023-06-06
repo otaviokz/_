@@ -41,6 +41,6 @@ extension LeanList: Codable {
 
 extension Array where Element == LeanList {
     var sortedByName: [LeanList] {
-        sorted { $0.name < $1.name }
+        sorted { $0.name.dbKeyComparable < $1.name.dbKeyComparable }
     }
 }
