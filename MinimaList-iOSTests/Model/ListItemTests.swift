@@ -27,12 +27,12 @@ final class ListItemTests: XCTestCase {
         let first = groceries[0]
 
         XCTAssertEqual(first.name, "Carrots")
-        XCTAssertNil(first.notes)
+        XCTAssertNil(first.note)
         XCTAssertEqual(first.list, "Groceries")
         
         let last = groceries[4]
         XCTAssertEqual(last.name, "Tomatoes")
-        XCTAssertEqual(last.notes, "Preferably the Spanish ones")
+        XCTAssertEqual(last.note, "Preferably the Spanish ones")
         XCTAssertEqual(last.list, "Groceries")
         
     }

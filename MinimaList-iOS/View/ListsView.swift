@@ -25,10 +25,18 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                 } else {
                     List {
                         ForEach(viewModel.lists) { list in
-                            NavigationLink(destination: ListItemsView(list)) {
-                                LeanListRowView(list: list)
+                            if isRunningTets {
+                                NavigationLink(destination: ItemsView<PreviewItemsViewModel>(selecetList: list)) {
+                                    LeanListRowView(list: list)
+                                }
+                                .accentColor(.secondary)
+                            } else {
+                                NavigationLink(destination: ItemsView<ItemsViewModel>(selecetList: list)) {
+                                    LeanListRowView(list: list)
+                                }
+                                .accentColor(.secondary)
                             }
-                            .accentColor(.secondary)
+                            
                         }
                         .onDelete { indexSet in
                             viewModel.remove(at: indexSet)
@@ -36,12 +44,15 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                     }
                 }
             }
+            .refreshable {
+                viewModel.refresh()
+            }
             .navigationTitle("Lists")
             .onAppear {
                 viewModel.onAppear()
             }
             .sheet(isPresented: $showAddListView) {
-                AddListView(unavailable: viewModel.unavailableNames) {
+                AddListView(unavailableNames: viewModel.unavailableNames) {
                     showAddListView = false
                 } onAdd: { name, footNote in
                     showAddListView = false
@@ -56,10 +67,6 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                 }
             }
         }
-    }
-    
-    var unavailableListNames: [String] {
-        viewModel.lists.map { $0.name.lowercased() }
     }
     
     var addListToolbarImage: some View {
@@ -80,4 +87,3 @@ struct ListsView_Previews: PreviewProvider {
         ListsView(viewModel: PreviewListsViewModel())
     }
 }
-

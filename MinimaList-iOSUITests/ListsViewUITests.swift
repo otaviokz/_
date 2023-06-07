@@ -27,7 +27,7 @@ final class MinimaList_iOSUITests: XCTestCase {
     
     func testBasics() throws {
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
         
         // Given
         waitExists(app.images.element(matching: .label("add.list")), timeOut: 4)
@@ -37,19 +37,26 @@ final class MinimaList_iOSUITests: XCTestCase {
         waitExists(app.textFields.matching(identifier: "List name").element, timeOut: 4)
         
         // Then
-        XCTAssert(app.textFields.matching(identifier: "Foot note").element.exists)
+        XCTAssert(app.textViews.matching(identifier: "Foot note").element.exists)
         XCTAssert(app.images.element(matching: .label("x.circle")).exists)
     }
     
     func testShowsFetchedListsAfterIndicator() throws {
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
         waitDontExists(app.progressIndicators.element, timeOut: 3)
         XCTAssert(app.staticTexts.matching(label: "Groceries").exists)
         XCTAssert(app.staticTexts.matching(label: "High Street Shopping").exists)
         XCTAssert(app.staticTexts.matching(label: "SwiftUI & Combine: Main Chapters").exists)
         XCTAssert(app.staticTexts.matching(label: "Tech Debts MinimaLists").exists)
         XCTAssert(app.staticTexts.matching(label: "Movies").exists)
+    }
+}
+
+extension XCUIApplication {
+    func launchWithTestFlags() {
+        launchArguments = [ "testMode" ]
+        launch()
     }
 }
 

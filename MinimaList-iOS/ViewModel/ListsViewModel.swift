@@ -6,55 +6,70 @@
 //
 
 import Foundation
+import Combine
+import SwiftUI
 
 class ListsViewModel: ListsViewModelType {
-    @Published private(set) var lists: [LeanList] = []
-    @Published private(set) var isLoading = false
-    var unavailableNames: [String] {
-        lists.map { $0.name.lowercased() }
+    @MainActor @Published private(set) var lists: [LeanList] = []
+    @MainActor @Published var isLoading = false
+    private(set) var service: ListsServiceable
+    @MainActor var errorSubject = PassthroughSubject<ServiceError, Never>()
+    
+    init(service: ListsServiceable = ListsService()) {
+        self.service = service
+    }
+    
+    @MainActor
+    var unavailableNames: Set<String> {
+        Set(lists.map { $0.name.dbKeyComparable })
     }
     private var shouldFetchLists = true
     
-    func onAppear() {
+    @MainActor
+    func refresh() {
         fetchLists()
     }
     
-    func fetchLists() {
+    @MainActor
+    func onAppear() {
         if shouldFetchLists {
+            fetchLists()
             shouldFetchLists = false
-            isLoading = true
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-                lists = mockLists
-                isLoading = false
-            }
         }
     }
     
-    func createList(_ name: String, footNote: String?) {
-        var aux = lists
-        aux.append(LeanList(name, footNote: footNote))
-        lists = aux.sortedByName
-    }
-    
-    func remove(at indexSet: IndexSet) {
+    @MainActor
+    func fetchLists()  {
         isLoading = true
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-            if let index = indexSet.first {
-                lists.remove(at: index)
-            }
+        runInTask { [unowned self] in
+            lists = try await service.fetchLists()
             isLoading = false
+            
         }
     }
-}
-
-private extension ListsViewModel {
-    var mockLists: [LeanList] {
-        [
-            LeanList("Groceries", footNote: "Try Farmers Market first"),
-            LeanList("High Street Shopping"),
-            LeanList("SwiftUI & Combine: Main Chapters", footNote: "TW Tech Assessment! Don't panic, you'll sus it just like you always do. You'r a bloody good dev!"),
-            LeanList("Tech Debts MinimaLists", footNote: "App is a bit clunky"),
-            LeanList("Movies"),
-        ]
+    
+    @MainActor
+    func createList(_ name: String, footNote: String?) {
+        isLoading = true
+        runInTask { [unowned self] in
+            if try await service.addList(LeanList(name, footNote: footNote)) {
+                isLoading = false
+                fetchLists()
+            }
+        }
+    }
+    
+    @MainActor
+    func remove(at indexSet: IndexSet) {
+        if let index = indexSet.first {
+            let list = lists[index]
+            isLoading = true
+            runInTask { [unowned self] in
+                if try await service.removeList(list) {
+                    isLoading = false
+                    fetchLists()
+                }
+            }
+        }
     }
 }

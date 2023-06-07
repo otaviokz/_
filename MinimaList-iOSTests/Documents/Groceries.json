@@ -1,28 +1,28 @@
 [
     {
         "name": "Lettuce",
-        "notes": null,
+        "note": null,
         "list": "Groceries"
     },
     {
         "name": "Minced Meat",
-        "notes": null,
+        "note": null,
         "list": "Groceries"
     },
     {
         "name": "Tomatoes",
-        "notes": "Preferably the Spanish ones",
+        "note": "Preferably the Spanish ones",
         "list": "Groceries"
 
     },
     {
         "name": "Potatoes",
-        "notes": null,
+        "note": null,
         "list": "Groceries"
     },
     {
         "name": "Carrots",
-        "notes": null,
+        "note": null,
         "list": "Groceries"
     }
 ]

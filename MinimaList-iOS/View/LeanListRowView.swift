@@ -11,28 +11,22 @@ struct LeanListRowView: View {
     let list: LeanList
     
     var body: some View {
-        HStack {
-            VStack(spacing: 0) {
+        VStack(spacing: 0) {
+            HStack {
+                Text(list.name)
+                    .font(.title3)
+                    .fontWeight(.regular)
+                Spacer()
+            }
+            
+            if let footNote = list.footNote {
                 HStack {
-                    Text(list.name)
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-                        .frame(alignment: .leading)
+                    Text(footNote)
+                        .font(.footnote)
+                        .fontWeight(.regular)
                     Spacer()
-                }
+                }.padding(.top, 4)
                 
-                if let footNote = list.footNote {
-                    HStack {
-                        Text(footNote)
-                            .font(.body)
-                            .fontWeight(.light)
-                            .foregroundColor(.primary)
-                            .frame(alignment: .leading)
-                        Spacer()
-                    }.padding(.top, 8)
-                    
-                }
             }
         }
         .frame(minHeight: 44)

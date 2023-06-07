@@ -8,12 +8,12 @@
 import Foundation
 
 
-protocol ListsViewModelType: ObservableObject {
+protocol ListsViewModelType: ObservableObject, ViewModelType {
     var lists: [LeanList] { get }
-    var isLoading: Bool { get }
-    var unavailableNames: [String] { get }
+    var unavailableNames: Set<String> { get }
     
     func onAppear()
     func createList(_ name: String, footNote: String?)
     func remove(at indexSet: IndexSet) 
 }
+

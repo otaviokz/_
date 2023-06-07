@@ -11,4 +11,8 @@ extension View {
     @inlinable func identifier(_ identifier: String) -> some View {
         accessibility(identifier: identifier)
     }
+    
+    var isRunningTets: Bool {
+        ProcessInfo().arguments.contains("testMode")
+    }
 }

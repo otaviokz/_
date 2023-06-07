@@ -24,7 +24,7 @@ final class AddListViewUITests: XCTestCase {
 
     func testBasics() throws {
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
         
         // Given
         
@@ -36,13 +36,13 @@ final class AddListViewUITests: XCTestCase {
         
         // Then
         XCTAssert(app.navigationBars.staticTexts.matching(label: "Lists").exists)
-        XCTAssert(app.textFields.matching(identifier: "Foot note").element.exists)
+        XCTAssert(app.textViews.matching(identifier: "Foot note").element.exists)
         XCTAssert(app.images.element(matching: .label("x.circle")).exists)
     }
     
     func testShowsButtonWhenListNameTypedIn() throws {
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
         
         // Given
         waitExists(app.images.element(matching: .label("add.list")), timeOut: 4)
@@ -56,7 +56,7 @@ final class AddListViewUITests: XCTestCase {
     
     func testShowsNameAlreadyUsed() throws {
         let app = XCUIApplication()
-        app.launch()
+        app.launchWithTestFlags()
         
         // Given
         waitExists(app.images.element(matching: .label("add.list")), timeOut: 4)
@@ -65,7 +65,7 @@ final class AddListViewUITests: XCTestCase {
         app.images.element(matching: .label("add.list")).firstMatch.tap()
         waitExists(app.textFields.matching(identifier: "List name").element, timeOut: 4)
         app.textFields.matching(identifier: "List name").element.typeText("Groceries")
-        XCTAssert(app.staticTexts.matching(identifier: "Name already used").element.exists)
+        XCTAssert(app.staticTexts.matching(identifier: "List name 'Groceries' already used.").element.exists)
     }
 
 //    func testLaunchPerformance() throws {
