@@ -45,8 +45,13 @@ class ItemsViewModel: ItemsViewModelType {
     func fetchItems(for list: LeanList) {
         isLoading = true
         runInTask { [unowned self] in
-            items = try await service.fetchItems()
-            isLoading = false
+            do {
+                items = try await service.fetchItems()
+                isLoading = false
+            } catch let error {
+                print(error)
+                isLoading = false
+            }            
         }
     }
     
@@ -54,10 +59,15 @@ class ItemsViewModel: ItemsViewModelType {
     func addItem(_ item: ListItem) {
         isLoading = true
         runInTask { [unowned self] in
-            if try await service.addItem(item) {
-                fetchItems(for: LeanList(item.list))
+            do {
+                if try await service.addItem(item) {
+                    fetchItems(for: LeanList(item.list))
+                }
+                isLoading = false
+            } catch let error {
+                print(error)
+                isLoading = false
             }
-            isLoading = false
         }
     }
     
@@ -67,10 +77,15 @@ class ItemsViewModel: ItemsViewModelType {
             let item = items[index]
             isLoading = true
             runInTask { [unowned self] in
-                if try await service.removeItem(item) {
-                    fetchItems(for: LeanList(item.list))
+                do {
+                    if try await service.removeItem(item) {
+                        fetchItems(for: LeanList(item.list))
+                    }
+                    isLoading = false
+                } catch let error {
+                    print(error)
+                    isLoading = false
                 }
-                isLoading = false
             }
         }
     }

@@ -42,9 +42,13 @@ class ListsViewModel: ListsViewModelType {
     func fetchLists()  {
         isLoading = true
         runInTask { [unowned self] in
-            lists = try await service.fetchLists()
-            isLoading = false
-            
+            do {
+                lists = try await service.fetchLists()
+                isLoading = false
+            } catch let error {
+                print(error)
+                isLoading = false
+            }
         }
     }
     
@@ -52,9 +56,14 @@ class ListsViewModel: ListsViewModelType {
     func createList(_ name: String, footNote: String?) {
         isLoading = true
         runInTask { [unowned self] in
-            if try await service.addList(LeanList(name, footNote: footNote)) {
+            do {
+                if try await service.addList(LeanList(name, footNote: footNote)) {
+                    isLoading = false
+                    fetchLists()
+                }
+            } catch let error {
+                print(error)
                 isLoading = false
-                fetchLists()
             }
         }
     }
@@ -65,9 +74,14 @@ class ListsViewModel: ListsViewModelType {
             let list = lists[index]
             isLoading = true
             runInTask { [unowned self] in
-                if try await service.removeList(list) {
+                do {
+                    if try await service.removeList(list) {
+                        isLoading = false
+                        fetchLists()
+                    }
+                } catch let error {
+                    print(error)
                     isLoading = false
-                    fetchLists()
                 }
             }
         }

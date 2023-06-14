@@ -17,7 +17,8 @@ protocol MinimaListsServiceable {
 
 extension MinimaListsServiceable {
     var session: URLSession { URLSession.shared }
-    var domainURL: URL { URL(string: "https://lean-shopping-list.herokuapp.com")! }
+        var domainURL: URL { URL(string: "https://lean-shopping-list.herokuapp.com")! }
+//    var domainURL: URL { URL(string: "http://192.168.0.15:5001")! }
     var endpointURL: URL { domainURL.appendingPathComponent(endpoint) }
     
     func handleUrlResponse(_ response: URLResponse) throws {

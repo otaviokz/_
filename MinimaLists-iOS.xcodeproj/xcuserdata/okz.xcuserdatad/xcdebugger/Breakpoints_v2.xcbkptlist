@@ -3,4 +3,164 @@
    uuid = "200B5EC6-5E23-4430-83C4-5FB66FD107E5"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E479B098-8F42-4CE4-BB54-D7C5A8305ACD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinimaList-iOS/Service/ListsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "fetchLists()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E479B098-8F42-4CE4-BB54-D7C5A8305ACD - 475494d6a1a2d85e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for MinimaLists_iOS.ListsService.fetchLists() async throws -&gt; Swift.Array&lt;MinimaLists_iOS.LeanList&gt;"
+                  moduleName = "MinimaLists-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okz/workspace/lean-lists-apps/MinimaLists-iOS/MinimaList-iOS/Service/ListsService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "E479B098-8F42-4CE4-BB54-D7C5A8305ACD - 95bacbe9622669f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for MinimaLists_iOS.ListsService.fetchLists() async throws -&gt; Swift.Array&lt;MinimaLists_iOS.LeanList&gt;"
+                  moduleName = "MinimaLists-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okz/workspace/lean-lists-apps/MinimaLists-iOS/MinimaList-iOS/Service/ListsService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "E479B098-8F42-4CE4-BB54-D7C5A8305ACD - 381d82e153251aa0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for MinimaLists_iOS.ListsService.fetchLists() async throws -&gt; Swift.Array&lt;MinimaLists_iOS.LeanList&gt;"
+                  moduleName = "MinimaLists-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okz/workspace/lean-lists-apps/MinimaLists-iOS/MinimaList-iOS/Service/ListsService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "E479B098-8F42-4CE4-BB54-D7C5A8305ACD - d279f8090c6be423"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for MinimaLists_iOS.ListsService.fetchLists() async throws -&gt; Swift.Array&lt;MinimaLists_iOS.LeanList&gt;"
+                  moduleName = "MinimaLists-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okz/workspace/lean-lists-apps/MinimaLists-iOS/MinimaList-iOS/Service/ListsService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E4CBEF8A-71A2-4CB4-99A9-1DADBF60F18C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinimaList-iOS/Service/ListsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "fetchLists()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB0206EA-2CC6-40D1-830A-30AD222E045E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinimaList-iOS/Service/ListsService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "fetchLists()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E262AD8-B1B4-4F1A-8437-341111D8CA56"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MinimaList-iOS/Model/LeanList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "init(from:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1E262AD8-B1B4-4F1A-8437-341111D8CA56 - ef9f743a528ef2d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinimaLists_iOS.LeanList.encode(to: Swift.Encoder) throws -&gt; ()"
+                  moduleName = "MinimaLists-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okz/workspace/lean-lists-apps/MinimaLists-iOS/MinimaList-iOS/Model/LeanList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "200">
+               </Location>
+               <Location
+                  uuid = "1E262AD8-B1B4-4F1A-8437-341111D8CA56 - aa712786810f435d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MinimaLists_iOS.LeanList.init(from: Swift.Decoder) throws -&gt; MinimaLists_iOS.LeanList"
+                  moduleName = "MinimaLists-iOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/okz/workspace/lean-lists-apps/MinimaLists-iOS/MinimaList-iOS/Model/LeanList.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "276">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
