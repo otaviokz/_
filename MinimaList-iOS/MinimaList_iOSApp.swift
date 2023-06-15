@@ -11,11 +11,11 @@ import SwiftUI
 struct MinimaList_iOSApp: App {
     var body: some Scene {
         WindowGroup {
-            if isRunningTets {
-                ListsView(viewModel: PreviewListsViewModel())
-            } else {
+//            if isRunningTets {
+//                ListsView(viewModel: PreviewListsViewModel())
+//            } else {
                 ListsView(viewModel: ListsViewModel())
-            }
+//            }
             
         }
     }

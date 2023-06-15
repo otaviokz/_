@@ -26,15 +26,13 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
                     List {
                         ForEach(viewModel.lists) { list in
                             if isRunningTets {
-                                NavigationLink(destination: ItemsView<PreviewItemsViewModel>(selecetList: list)) {
+                                NavigationLink(destination: ItemsView<ItemsViewModel>(selecetList: list)) {
                                     LeanListRowView(list: list)
                                 }
-                                .accentColor(.secondary)
                             } else {
                                 NavigationLink(destination: ItemsView<ItemsViewModel>(selecetList: list)) {
                                     LeanListRowView(list: list)
                                 }
-                                .accentColor(.secondary)
                             }
                             
                         }
@@ -70,20 +68,21 @@ struct ListsView<ViewModel: ListsViewModelType>: View {
     }
     
     var addListToolbarImage: some View {
-        Image("add.list")
-            .resizable()
-            .frame(width: 32, height: 32)
-            .foregroundColor(.blue)
-            .onTapGesture {
-                showAddListView = true
-            }
-            .padding(.trailing, 16)
-            .padding(.top, 6)
+        Button {
+            Image("add.list")
+                .resizable()
+                .frame(width: 32, height: 32)
+                .foregroundColor(.systemBlue)
+        } action: {
+            showAddListView = true
+        }
+        .padding(.trailing, 16)
+        .padding(.top, 6)
     }
 }
 
-struct ListsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListsView(viewModel: PreviewListsViewModel())
-    }
-}
+//struct ListsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListsView(viewModel: PreviewListsViewModel())
+//    }
+//}

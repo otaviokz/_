@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct ItemsView<ViewModel: ItemsViewModelType>: View {
     @ObservedObject private(set) var viewModel: ViewModel
     @State private var showNote = false
+    @State private var showContentCopied = false
     @State private var noteSheetData: (name: String, note: String) = ("", "")
     @State private var showAddItemView = false
     @State var listNoteHeight: CGFloat = 200
@@ -42,9 +44,6 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
                 }
             }
         }
-          .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
-              _ = calculateNoteHeight()
-          }
         .refreshable {
             viewModel.refresh()
         }
@@ -61,7 +60,7 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
                     .frame(alignment: .topLeading)
                     .padding(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
                 
-                VStack {
+                VStack(alignment: .leading) {
                     HStack {
                         Text(noteSheetData.note)
                             .font(.headline)
@@ -70,18 +69,16 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(40, reservesSpace: false)
                             .frame(alignment: .topLeading)
-                        if UIDevice.current.orientation.isPortrait {
-                            Spacer()
-                        }
+                        
+                        Spacer()
                     }
                     .frame(maxWidth: .infinity)
                     if UIDevice.current.orientation.isPortrait {
                         Spacer()
                     }
-                    
                 }
                 .frame(maxWidth: .infinity)
-                .frame(height: 200)
+                .frame(height: 200, alignment: .topLeading)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.primary, lineWidth: 1)
@@ -89,12 +86,25 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
                 .padding(.horizontal, 14)
                 Spacer()
             }
+            .onLongPressGesture {
+                UIPasteboard.general.string = """
+                \(noteSheetData.name)
+                
+                \(noteSheetData.note)
+                """
+                UIPasteboard.general.image = UIImage(systemName: "info.circle")
+                
+                showContentCopied = true
+            }
             .frame(maxWidth:. infinity)
             .padding()
             .presentationDetents([.medium])
             .onDisappear {
                 showNote = false
                 noteSheetData = ("", "")
+            }
+            .alert(isPresented: $showContentCopied) {
+                Alert(title: Text("Item title and noes copied to pasteboard."), dismissButton: .default(Text("OK")))
             }
         }
         .sheet(isPresented: $showAddItemView) {
@@ -106,34 +116,41 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
             }
         }
         .toolbar {
-            if !showAddItemView {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Image(systemName: "plus.square")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                HStack {
+                    Button {
+                        Image(systemName: "doc.on.clipboard")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                    } action: {
+                        var text = ""
+                        for item in viewModel.items {
+                            text += "● \(item.name.trimmingSpaces.trimmingCharacters(in: .newlines))\n"
+                            
+                            if let note = item.note {
+                                text += "\n\(note.trimmingSpaces.trimmingCharacters(in: .newlines))\n"
+                            }
+                            
+                            text += "\n"
+                        }
+                        
+                        UIPasteboard.general.string = text
+                    }
+                    
+                    if !showAddItemView {
+                        Button {
+                            Image(systemName: "plus.square")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                        } action: {
                             showAddItemView = true
                         }
-                        .padding(.trailing, 16)
-                        .padding(.top, 6)
+                    }
                 }
+                .foregroundColor(.systemBlue)
+                .padding(.top, 6)
+                .padding(.trailing, 16)
             }
         }
     }
-    
-    func calculateNoteHeight() -> CGFloat {
-        if  UIDevice.current.orientation.isLandscape {
-            listNoteHeight = 15
-        } else {
-            listNoteHeight = 200
-        }
-        return listNoteHeight
-    }
 }
-
-//struct ListItemsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemsView<ViewModel: ItemsViewModelTypez>(LeanList("Groceries"), viewModel: PreviewItemsViewModel(selectedList: LeanList("")))
-//    }
-//}

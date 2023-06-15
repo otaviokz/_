@@ -25,8 +25,8 @@ struct LeanListRowView: View {
                         .font(.footnote)
                         .fontWeight(.regular)
                     Spacer()
-                }.padding(.top, 4)
-                
+                }
+                .padding(.top, 4)                
             }
         }
         .frame(minHeight: 44)

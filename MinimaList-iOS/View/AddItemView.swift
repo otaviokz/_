@@ -28,13 +28,15 @@ struct AddItemView: View {
         VStack {
             HStack {
                 Spacer()
-                Image(systemName: "x.circle")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .padding(24)
-                    .onTapGesture {
-                        onDismiss()
-                    }
+                Button {
+                    Image(systemName: "x.circle")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .padding(24)
+                } action: {
+                    onDismiss()
+                }
+                .foregroundColor(.systemBlue)
             }
             
             HStack {

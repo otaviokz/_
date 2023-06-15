@@ -14,7 +14,8 @@ struct SaveButton: View {
         Button("Save", action: action)
             .foregroundColor(.blue)
             .font(.headline)
-            .frame(width: 70, height: 40)
+            .frame(width: 70, height: 48
+            )
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.blue, lineWidth: 2)

@@ -24,6 +24,8 @@
 		2B1510522A2D1783009203E2 /* ListItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1510512A2D1783009203E2 /* ListItemRowView.swift */; };
 		2B1510542A2D2E2F009203E2 /* ItemsViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1510532A2D2E2F009203E2 /* ItemsViewModelType.swift */; };
 		2B1510562A2D2E52009203E2 /* ItemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B1510552A2D2E52009203E2 /* ItemsViewModel.swift */; };
+		2B204E622A41960C006A7188 /* Button+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B204E612A41960C006A7188 /* Button+Utils.swift */; };
+		2B204E642A4198B9006A7188 /* Color+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B204E632A4198B9006A7188 /* Color+Utils.swift */; };
 		2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E302A2C9B880052B2FC /* AddListView.swift */; };
 		2B494E362A2C9C6D0052B2FC /* Binding+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */; };
 		2B494E382A2CA56F0052B2FC /* AddListViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */; };
@@ -91,6 +93,8 @@
 		2B1510512A2D1783009203E2 /* ListItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemRowView.swift; sourceTree = "<group>"; };
 		2B1510532A2D2E2F009203E2 /* ItemsViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModelType.swift; sourceTree = "<group>"; };
 		2B1510552A2D2E52009203E2 /* ItemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewModel.swift; sourceTree = "<group>"; };
+		2B204E612A41960C006A7188 /* Button+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Utils.swift"; sourceTree = "<group>"; };
+		2B204E632A4198B9006A7188 /* Color+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Utils.swift"; sourceTree = "<group>"; };
 		2B494E302A2C9B880052B2FC /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
 		2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Equatable.swift"; sourceTree = "<group>"; };
 		2B494E372A2CA56F0052B2FC /* AddListViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewUITests.swift; sourceTree = "<group>"; };
@@ -245,6 +249,7 @@
 				2B494E352A2C9C6D0052B2FC /* Binding+Equatable.swift */,
 				2B62A5552A2EDB49000EE730 /* View+Utils.swift */,
 				2B59C57E2A2FB669000B4802 /* String+Utils.swift */,
+				2B204E612A41960C006A7188 /* Button+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				2B62A5622A2F219B000EE730 /* URLRequest+JsonBody.swift */,
+				2B204E632A4198B9006A7188 /* Color+Utils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -469,6 +475,7 @@
 				2B62A5632A2F219B000EE730 /* URLRequest+JsonBody.swift in Sources */,
 				2B055DF72A2BFFDA004E8214 /* ListItem.swift in Sources */,
 				2B62A5562A2EDB49000EE730 /* View+Utils.swift in Sources */,
+				2B204E642A4198B9006A7188 /* Color+Utils.swift in Sources */,
 				2B1510522A2D1783009203E2 /* ListItemRowView.swift in Sources */,
 				2B57CDA92A2C3715000F5181 /* PreviewListsViewModel.swift in Sources */,
 				2B62A55C2A2EF595000EE730 /* RoundBorderedTextField.swift in Sources */,
@@ -484,6 +491,7 @@
 				2B62A55F2A2F212F000EE730 /* ListsServiceable.swift in Sources */,
 				2B494E312A2C9B880052B2FC /* AddListView.swift in Sources */,
 				2B055DC92A2BFDEF004E8214 /* MinimaList_iOSApp.swift in Sources */,
+				2B204E622A41960C006A7188 /* Button+Utils.swift in Sources */,
 				2B1510542A2D2E2F009203E2 /* ItemsViewModelType.swift in Sources */,
 				2B62A56C2A2F27AD000EE730 /* ServiceError.swift in Sources */,
 				2B1510562A2D2E52009203E2 /* ItemsViewModel.swift in Sources */,
@@ -679,7 +687,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -726,7 +734,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -938,7 +946,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = "Otavio-LTD.MinimaList-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

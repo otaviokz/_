@@ -27,13 +27,15 @@ struct AddListView: View {
         VStack {
             HStack {
                 Spacer()
-                Image(systemName: "x.circle")
-                    .resizable()
-                    .frame(width: 24, height: 24)
-                    .padding(24)
-                    .onTapGesture {
-                        onDismiss()
-                    }
+                Button {
+                    Image(systemName: "x.circle")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .padding(24)
+                } action: {
+                    onDismiss()
+                }
+                .foregroundColor(.systemBlue)
             }
             
             HStack(spacing: 0) {
@@ -61,9 +63,6 @@ struct AddListView: View {
                 }
             }
             .padding(.bottom, 4)
-            // Mark: List name
-            
-        
             BigRoundBorderedTextField("Foot note", height: 60, text: $footNote)
                 .focused($focus, equals: .footNote)
                 .identifier("Foot note")
@@ -71,6 +70,7 @@ struct AddListView: View {
             if footNote.trimmingSpaces.count > 128 {
                 FormErrorText(text: "Max 128 characters")
             }
+            Spacer()
         }
         .onAppear {
             focus = .name

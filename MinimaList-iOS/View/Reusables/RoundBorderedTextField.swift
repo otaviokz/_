@@ -19,6 +19,7 @@ struct RoundBorderedTextField: View {
     var body: some View {
         TextField(title, text: text)
             .frame(height: 40)
+            .padding(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
             .padding(.leading, 1)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
