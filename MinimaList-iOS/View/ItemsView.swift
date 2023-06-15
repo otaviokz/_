@@ -12,6 +12,7 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
     @State private var showNote = false
     @State private var noteSheetData: (name: String, note: String) = ("", "")
     @State private var showAddItemView = false
+    @State var listNoteHeight: CGFloat = 200
     private let selectedList: LeanList
     
     init(selecetList: LeanList) {
@@ -41,6 +42,9 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
                 }
             }
         }
+          .onReceive(NotificationCenter.default.publisher(for: UIDevice.orientationDidChangeNotification)) { _ in
+              _ = calculateNoteHeight()
+          }
         .refreshable {
             viewModel.refresh()
         }
@@ -66,14 +70,18 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(40, reservesSpace: false)
                             .frame(alignment: .topLeading)
-                        Spacer()
-                        
+                        if UIDevice.current.orientation.isPortrait {
+                            Spacer()
+                        }
                     }
                     .frame(maxWidth: .infinity)
+                    if UIDevice.current.orientation.isPortrait {
+                        Spacer()
+                    }
                     
-                    Spacer()
                 }
-                .frame(maxWidth: .infinity, minHeight: 40, maxHeight: 200)
+                .frame(maxWidth: .infinity)
+                .frame(height: 200)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.primary, lineWidth: 1)
@@ -112,6 +120,15 @@ struct ItemsView<ViewModel: ItemsViewModelType>: View {
                 }
             }
         }
+    }
+    
+    func calculateNoteHeight() -> CGFloat {
+        if  UIDevice.current.orientation.isLandscape {
+            listNoteHeight = 15
+        } else {
+            listNoteHeight = 200
+        }
+        return listNoteHeight
     }
 }
 

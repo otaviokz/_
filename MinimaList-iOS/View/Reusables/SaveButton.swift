@@ -14,12 +14,13 @@ struct SaveButton: View {
         Button("Save", action: action)
             .foregroundColor(.blue)
             .font(.headline)
-            .frame(width: 100, height:  38)
+            .frame(width: 70, height: 40)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(.blue, lineWidth: 2)
             )
-            .padding()
+            .padding(.leading, 16)
+            .padding(.trailing, 1)
             .identifier("Save")
     }
 }

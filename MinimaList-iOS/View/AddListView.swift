@@ -36,37 +36,40 @@ struct AddListView: View {
                     }
             }
             
-            // Mark: List name
-            RoundBorderedTextField("List name", text: $name)
-                .focused($focus, equals: .name)
-                .onSubmit {
-                    focus = .footNote
+            HStack(spacing: 0) {
+                if showSaveButton {
+                    SaveButton {
+                        onAdd(
+                            name.trimmingSpaces,
+                            footNote.isEmpty ? nil : footNote
+                        )
+                    }
                 }
-            
-            if nameAlreadyUsed {
-                FormErrorText(text: "List name '\(name.trimmingSpaces)' already used.")
-            } else if name.trimmingSpaces.count > 64 {
-                FormErrorText(text: "Max 64 characters")
+                
+                VStack {
+                    RoundBorderedTextField("List name", text: $name)
+                        .focused($focus, equals: .name)
+                        .onSubmit {
+                            focus = .footNote
+                        }
+                    
+                    if nameAlreadyUsed {
+                        FormErrorText(text: "List name '\(name.trimmingSpaces)' already used.")
+                    } else if name.trimmingSpaces.count > 64 {
+                        FormErrorText(text: "Max 64 characters")
+                    }
+                }
             }
+            .padding(.bottom, 4)
+            // Mark: List name
+            
         
-            BigRoundBorderedTextField("Foot note", height: 100, text: $footNote)
+            BigRoundBorderedTextField("Foot note", height: 60, text: $footNote)
                 .focused($focus, equals: .footNote)
-//                .identifier("Foot note")
+                .identifier("Foot note")
             
             if footNote.trimmingSpaces.count > 128 {
                 FormErrorText(text: "Max 128 characters")
-            }
-            
-            Spacer()
-            
-            // Mark: Save Buttpn
-            if showSaveButton {
-                SaveButton {
-                    onAdd(
-                        name.trimmingSpaces,
-                        footNote.isEmpty ? nil : footNote
-                    )
-                }
             }
         }
         .onAppear {

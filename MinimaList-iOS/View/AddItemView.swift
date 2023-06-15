@@ -37,19 +37,37 @@ struct AddItemView: View {
                     }
             }
             
-            RoundBorderedTextField("Name", text: $name)
-                .focused($focus, equals: .name)
-                .onSubmit {
-                    focus = .note
+            HStack {
+                if showSaveButton {
+                    SaveButton {
+                        onAdd(
+                            ListItem(
+                                name.trimmingSpaces,
+                                note: note.isEmpty ? nil : note,
+                                list: listName
+                            )
+                        )
+                    }.font(.title)
                 }
-            
-            if nameAlreadyUsed {
-                FormErrorText(text: "Item \(name.trimmingSpaces) already in this list.")
-            } else if name.trimmingSpaces.count > 64 {
-                FormErrorText(text: "Max 64 characteres")
+                    
+                VStack {
+                    RoundBorderedTextField("Name", text: $name)
+                        .focused($focus, equals: .name)
+                        .onSubmit {
+                            focus = .note
+                        }
+                    
+                    if nameAlreadyUsed {
+                        FormErrorText(text: "Item \(name.trimmingSpaces) already in this list.")
+                    } else if name.trimmingSpaces.count > 64 {
+                        FormErrorText(text: "Max 64 characteres")
+                    }
+                }
+                 
             }
+            .padding(.bottom, 4)
             
-            BigRoundBorderedTextField("Notes", height: 200, text: $note)
+            BigRoundBorderedTextField("Notes", height: 150, text: $note)
                 .focused($focus, equals: .note)    
             
             if note.trimmingSpaces.count > 256 {
@@ -57,18 +75,6 @@ struct AddItemView: View {
             }
             
             Spacer()
-            if showSaveButton {
-                SaveButton {
-                    onAdd(
-                        ListItem(
-                            name.trimmingSpaces,
-                            note: note.isEmpty ? nil : note,
-                            list: listName
-                        )
-                    )
-                }
-            }
-            
         }
         .onChange(of: $name) { _ in
             nameAlreadyUsed = unavailableItemNames.contains(name.dbKeyComparable)
